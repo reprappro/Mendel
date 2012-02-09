@@ -88,3 +88,5 @@ module roundcorner(diameter){
 		translate(v = [diameter, diameter, 0]) cylinder(h = 100, r=diameter, center=true);
 	}
 }
+
+include <functions.scad>

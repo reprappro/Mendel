@@ -12,6 +12,11 @@
 
 include <configuration.scad>
 
+// Print four of the objects generated when this is true, three of those generated
+// when it is false.
+
+pcb_mount=true; // Set false for endstop
+
 /**
  *@name Endstop holder
  *@using 1 m3x20
@@ -23,7 +28,6 @@ outer_diameter = m8_diameter/2+3.3;
 screw_hole_spacing = 9.5; // Set to 20 to get standard design
 opening_size = m8_diameter-1.5; //openingsize
 switch_screw_hole_radius = 1.3; // Set to m3_diameter/2 to get standard design
-pcb_mount=false; // Set false for endstop
 switch_add =11; // Set 0 for ordinary endstop, 11 for Z with adjuster
 translate([-outer_diameter, -outer_diameter, -5]) 
 difference(){

@@ -2,9 +2,10 @@
 Released by Lanthan, august 24, 2011, under the GNU Public licens (GPL).
 */
 
+// Modified by Adrian to reduce material
 
 // Print one of the objects generated when this is true, and one when it's false.
-motor_side=false;
+motor_side=true;
 
 include <configuration.scad> ;
 
@@ -43,7 +44,7 @@ translate([-20.85,30.70,-5]) cylinder(h=30,r=4.50) ;
 translate([-26.06,33.67,10]) rotate(a=[0,0,-30]) cube(size = [12,9,30], center = true) ;
 }
 
-
+translate([-20,-30,-5]) cylinder(h=30,r=15, center=true, $fn=40) ;
 }
 
 } ; // end motor_mount
@@ -55,11 +56,12 @@ difference() {
 union() {
 	linear_extrude(file="../dxf/ybracproj_extr.dxf", height = cover_thickness, origin =[0,0]);
 
-cylinder(h=10,r=17) ;
+//cylinder(h=10,r=17) ;
 
 }
-translate([0,0,1.5]) cylinder(h=50,r=14) ;
-translate([0,0,-5]) cylinder(h=50,r=8) ;
+translate([0,0,-1.5]) cylinder(h=50,r=15) ;
+//translate([0,0,-5]) cylinder(h=50,r=8) ;
+translate([-20,-30,-5]) cylinder(h=30,r=15, center=true, $fn=40) ;
 translate([3.81,-21.59,-5]) cylinder(h=50,r=m3_diameter/2) ;
 translate([21.59,3.81,-5]) cylinder(h=50,r=m3_diameter/2) ;
 translate([-33.81,8.20,-5]) cylinder(h=50,r=m3_diameter/2) ;

@@ -8,6 +8,7 @@
 // http://github.com/prusajr/PrusaMendel
 
 include <configuration.scad>
+include <bearing-mount-include.scad>
 
 // Modified by Adrian to remove bridges and to add a conical cavity for the bottom nut; this
 // prints more cleanly and reliably.  26 May 2011
@@ -129,7 +130,7 @@ translate(v = [0, -55, 15]) {
 	}
 }
 }
-
+/*
 //slider for LM8UU bearings
 
 translate(v = [0, -25, 15]) 
@@ -181,6 +182,34 @@ translate(v = [0, -25, 15])
 	}
 }
 
+*/
+
+translate(v = [0, -25, 15]) 
+difference()
+{
+union()
+{
+	translate(v = [0, -8, -7]) 
+		cube(size = [17+2*thin_wall,8, 65], center = true);
+	translate(v = [0, -3.5, -31.6]) 
+		cube(size = [33,17,15.8], center = true);
+	
+}
+translate(v = [0, -3.5, -7]) 
+		cube(size = [17,17, 75], center = true);
+translate(v = [0, 5, -31.6]) 
+		cube(size = [24,17,20], center = true);
+}
+
+translate([0,-34.5,-12.5])
+rotate([-90,0,0])
+lm8uu_holder(with_mountplate=false, vertical=true, slope=false);
+
+
+translate([0,-34.5,28.5])
+rotate([-90,0,0])
+lm8uu_holder(with_mountplate=false, vertical=true, slope=true);
+
 
 
 //nut trap
@@ -231,7 +260,16 @@ if(motor)
 	{
 		union()
 		{
-			translate(v = [21, -24.0, 20.5]) cube(size = [24,2,38], center = true); // Changed to a web
+
+			translate(v = [21, -24.0, 20.5]) 
+			difference()
+			{
+				cube(size = [24,2,38], center = true); // Changed to a web
+				translate(v = [-20, 0, 0]) 
+					rotate([0,15,0])
+						cube(size = [34,8,55], center = true);
+			}
+
 			translate(v = [32.5, 2, 13.5]) cube(size = [5,54,52], center = true);
 			translate(v = [22.5, 2, -11]) cube(size = [20,54,3], center = true);
 		}
@@ -258,7 +296,7 @@ if(motor)
 
 	// Cable support holes
 	translate([-30, -16, 25]) rotate([0,90,0])cylinder(h = 20, r=1.5, $fn=15, center=true);
-	translate([-15, -16, 22]) rotate([90,0,0])cylinder(h = 20, r=1.5, $fn=15, center=true);
+	translate([-26, -16, 22]) rotate([90,0,0])cylinder(h = 20, r=1.5, $fn=15, center=true);
 
 	}
 }else
@@ -272,7 +310,16 @@ if(motor)
 			union()
 			{
 				translate(v = [18, -24, 15]) cube(size = [26.5,2,25], center = true); // New web
-				translate(v = [21, 14, 15]) cube(size = [24,2,25], center = true); // New web
+				translate(v = [21, 14, 15]) 
+				{
+					difference()
+					{
+						cube(size = [24,2,25], center = true); // New web
+						translate(v = [-21, 0, 0]) 
+							rotate([0,20,0])
+								cube(size = [34,8,55], center = true);
+					}
+				}
 				translate(v = [32.5, -5, 12.5]) cube(size = [5,40,30], center = true);
 			}
 		
@@ -292,6 +339,8 @@ if(!motor)
 	translate(v = [-35.1, +15.1, -5]) rotate(a=[0,0,-90]) roundcorner(5);
 }
 }
+
+
 
 // The cutouts for the X rod clamps
 translate(back_clamp)

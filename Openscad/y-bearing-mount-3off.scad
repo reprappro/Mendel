@@ -2,6 +2,6 @@
 
 include <bearing-mount-include.scad>
 
-lm8uu_holder(with_mountplate=true, vertical=false, slope=false);
+bearing_holder(with_mountplate=true, vertical=false, slope=false, igus=false);
 
 

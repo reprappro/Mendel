@@ -13,7 +13,8 @@
 
 //Test
 //rotate([-90,0,0])
-//	lm8uu_holder(with_mountplate=true, vertical=false, slope=false);
+//	bearing_holder(with_mountplate=false, vertical=true, slope=false,igus=true);
+
 
 // LM8UU/rod dimensions
 LM8UU_dia = 15.2;
@@ -45,6 +46,11 @@ screw_bushing_space = 1;
 screw_elevation = LM8UU_dia + body_wall_thickness + (screw_thread_dia/2) +screw_bushing_space;
 projection=15; // Side projection for bed mount
 plate_thickness=10;// thickness of mount plate
+
+igus_od=9.65;
+igus_flat=13;
+igus_length=8;
+igus_thick=2;
 
 
 
@@ -83,11 +89,48 @@ module mount_plate()
 // with_mountplate true creates mounting holes either side plus a holder for the bed screws.
 // vertical true adds features that allow the holder to be printed +Y face down without support
 // slope true adds features that allows the holder to be printed vertically "in mid air" with the +Y face down without support
+// Igus true creates a holder for an Igus slider bearing; false makes an LM8UU holder
 
-module lm8uu_holder(with_mountplate=false, vertical=false, slope=false)
+module bearing_holder(with_mountplate=false, vertical=false, slope=false,igus=false)
 {
 	difference()
 	{
+
+		if(igus)
+		{
+
+			if (with_mountplate) 
+			mount_plate();
+
+			if(slope)
+			{
+				// body
+				translate([0,body_length/2,body_height/4])
+					cube([body_width,2*body_length,body_height/2], center=true);
+				translate([0,LM8UU_length/2,(LM8UU_dia/2)+body_wall_thickness])		
+					rotate([90,0,0])
+						cylinder(r=(igus_flat/2)+body_wall_thickness, h=2*LM8UU_length, center=true);
+		
+
+			} else
+			{
+				// body
+				translate([0,0,body_height/4])
+					cube([body_width,body_length,body_height/2], center=true);
+				translate([0,0,(LM8UU_dia/2)+body_wall_thickness])		
+					rotate([90,0,0])
+						cylinder(r=(igus_flat/2)+body_wall_thickness, h=LM8UU_length, center=true);
+		
+
+			}
+
+
+
+
+
+		} else
+		{
+	
 		union()
 		{
 			if (with_mountplate) 
@@ -123,7 +166,7 @@ module lm8uu_holder(with_mountplate=false, vertical=false, slope=false)
 					cube([body_wall_thickness,LM8UU_length,(LM8UU_dia/2)+screw_bushing_space+(screw_thread_dia/2)]);
 			}
 	
-	
+
 			// nut trap surround
 			translate([gap_width/2,0,screw_elevation])
 				rotate([0,90,0])
@@ -181,13 +224,72 @@ module lm8uu_holder(with_mountplate=false, vertical=false, slope=false)
 					center=true);
 			}
 
+			
+
 		}
-	
+		}
+
+		if(igus)
+		{
+			translate([0,5-LM8UU_length/2,LM8UU_dia/2+2])
+				rotate([90,0,0])
+				{
+					if(vertical)
+					{
+						difference()		
+						{
+							union()
+							{
+								cylinder(r=(igus_flat+0.5)/2,h=igus_thick,$fn=30);
+								translate([0,0,igus_thick])
+									cylinder(r1=(igus_flat+0.5)/2, r2=(igus_flat+0.5)/2-igus_thick, h=igus_thick,$fn=30);
+								translate([0,(igus_flat+0.5)/2,igus_thick])
+									cube([igus_flat+0.5,igus_flat+0.5,2*igus_thick], center=true);
+							}
+							translate([0.726*(igus_flat+0.5),(igus_flat+0.5)/2,igus_thick])
+								rotate([0,45,0])
+									cube([igus_flat+0.5,igus_flat+3,2*igus_thick], center=true);
+							translate([-0.726*(igus_flat+0.5),(igus_flat+0.5)/2,igus_thick])
+								rotate([0,-45,0])
+									cube([igus_flat+0.5,igus_flat+3,2*igus_thick], center=true);
+						}
+					} else
+					{
+						union()
+						{
+							polyhole(igus_flat+0.5,igus_thick);
+							translate([0,(igus_flat+0.5)/2,igus_thick/2])
+								cube([igus_flat+0.5,igus_flat+0.5,igus_thick], center=true);
+						 	
+						}
+					}
+				}
+			if(!(slope||vertical))
+			{
+			translate([0,LM8UU_length/3+igus_length,LM8UU_dia/2+body_height/2])
+					cube([body_width+3,LM8UU_length,body_height], center=true);
+			}
+			translate([0,50,LM8UU_dia/2+2])
+			{
+				rotate([90,0,0])
+					translate([0,0,-(LM8UU_length+1)/2]) polyhole(igus_od+0.3,LM8UU_length+100);
+				translate([0,0,sqrt(0.5)*((igus_flat/2)+body_wall_thickness)])
+					rotate([0,45,0])
+						cube([(igus_flat/2)+body_wall_thickness, LM8UU_length+100 ,
+							(igus_flat/2)+body_wall_thickness],center=true);
+
+			}
+		
+			translate([0, 5+body_length, 25])
+				rotate([45,0,0])
+					cube([50,50,50], center=true);	
+		} else
+		{	
 		// bushing hole
 		translate([0,50,LM8UU_dia/2+2])
 			rotate([90,0,0])
 //				cylinder(r=LM8UU_dia/2, h=LM8UU_length+100, center=true);
-				translate([0,0,-(LM8UU_length+1)/2]) polyhole(LM8UU_dia,LM8UU_length+100);	// TESTING POLYHOLE MODULE FOR BETTER LM8UU FIT
+				translate([0,0,-(LM8UU_length+1)/2]) polyhole(LM8UU_dia,LM8UU_length+100);	
 	
 		// top gap
 		translate([-(gap_width/2),-(body_length/2)-1-50,body_height/2])
@@ -211,6 +313,9 @@ module lm8uu_holder(with_mountplate=false, vertical=false, slope=false)
 		translate([0, 18.5+body_length, 25])
 			rotate([45,0,0])
 				cube([50,50,50], center=true);
+
+		}
+
 	
 	}
 }

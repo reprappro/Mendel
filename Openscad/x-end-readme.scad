@@ -18,7 +18,11 @@ include <bearing-mount-include.scad>
 // 9 Feb 2012
 
 // Print 1 of the objects generated when this is true, and one when it is false.
-motor=false;
+motor=true;
+
+// Set this false for Igus bearings, true for LM8UUs
+
+lm8uu=false;
 
 corection = 1.17; 
 back_clamp=[-25, -5, 0];
@@ -29,22 +33,7 @@ scaffold=false;
 
 
 
-module cable_tie_notch(angle=35)
-{
-		difference()
-		{
-			rotate([45,0,angle])
-				difference()
-				{
-					cube(size = [40,20, 20], center = true);
-					translate(v = [0, -15, 15]) 
-						rotate([45,0,0])
-							cube(size = [50,20, 20], center = true);
-				}
-			translate(v = [0, 0, -17]) 
-					cube(size = [100,100, 30], center = true);
-		}
-}
+
 
 module clamp()
 {
@@ -130,85 +119,33 @@ translate(v = [0, -55, 15]) {
 	}
 }
 }
-/*
-//slider for LM8UU bearings
 
-translate(v = [0, -25, 15]) 
-{
-
-	difference()
-	{
-		union()
-		{
-			translate(v = [0, -3.5, -7]) 
-			difference()
-			{
-				cube(size = [17+2*thin_wall,17, 65], center = true);
-				translate(v = [-13, -13, 0]) 
-					rotate([0,0,45])
-						cube(size = [20,20, 75], center = true);
-				translate(v = [13, -13, 0]) 
-					rotate([0,0,-45])
-						cube(size = [20,20, 75], center = true);
-	
-			}
-			translate(v = [0, -3.5, -31.6]) cube(size = [33,17,15.8], center = true);
-			
-		}
-		difference()
-		{
-			cylinder(h = 100, r=7.5, $fn=30, center=true);
-			translate(v = [0, 0, 17-24])
-				difference()
-				{
-					cylinder(h = 17, r=26,  $fn=30, center=true);
-					cylinder(h = 27, r=6,  $fn=30, center=true);
-	
-					translate(v = [0, 0,-10.5]) 
-						cylinder(h = 7, r1=13, r2=6, $fn=30, center=true);
-				}
-			
-		}
-
-
-		translate(v = [-18, 8, 15]) 
-			cable_tie_notch(angle=35);
-		translate(v = [18, 8, 15]) 
-			cable_tie_notch(angle=-35);
-		translate(v = [-18, 8, -21]) 
-			cable_tie_notch(angle=35);
-		translate(v = [18, 8, -21]) 
-			cable_tie_notch(angle=-35);
-	}
-}
-
-*/
 
 translate(v = [0, -25, 15]) 
 difference()
 {
-union()
-{
-	translate(v = [0, -8, -7]) 
-		cube(size = [17+2*thin_wall,8, 65], center = true);
-	translate(v = [0, -3.5, -31.6]) 
-		cube(size = [33,17,15.8], center = true);
-	
-}
-translate(v = [0, -3.5, -7]) 
-		cube(size = [17,17, 75], center = true);
-translate(v = [0, 5, -31.6]) 
-		cube(size = [24,17,20], center = true);
+	union()
+	{
+		translate(v = [0, -8, -7]) 
+			cube(size = [17+2*thin_wall,8, 65], center = true);
+		translate(v = [0, -3.5, -31.6]) 
+			cube(size = [33,17,15.8], center = true);
+		
+	}
+	translate(v = [0, 0, -17]) 
+			cube(size = [17,17, 105], center = true);
+	translate(v = [0, 5, -31.6]) 
+			cube(size = [24,17,20], center = true);
 }
 
 translate([0,-34.5,-12.5])
 rotate([-90,0,0])
-lm8uu_holder(with_mountplate=false, vertical=true, slope=false);
+bearing_holder(with_mountplate=false, vertical=true, slope=false,igus=!lm8uu);
 
 
 translate([0,-34.5,28.5])
 rotate([-90,0,0])
-lm8uu_holder(with_mountplate=false, vertical=true, slope=true);
+bearing_holder(with_mountplate=false, vertical=true, slope=true,igus=!lm8uu);
 
 
 

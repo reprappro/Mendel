@@ -78,7 +78,9 @@ m5_nut_diameter = vars[variant][12];
 // MEGA VERSION (TODO, just place holder)
 // include <configuration-mega.scad>
 
+// Gap between the X rods
 
+x_rod_centres=70;
 
 
 // Some basic functions, probably should be somewhere else

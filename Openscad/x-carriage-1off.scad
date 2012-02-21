@@ -2,7 +2,6 @@ include <configuration.scad>
 include <bearing-mount-include.scad>
 include <belt-clamp-readme.scad>
 
-rod_centres=70;
 
 plate();
 
@@ -23,30 +22,32 @@ module plate()
 		{
 			difference()
 			{
-				translate([-4, 0, -10])
-					cube([98,96,5],center=true);
+				translate([-2, 0, -10])
+					cube([x_rod_centres+30,96,5],center=true);
 				three_ends(chop=true);
+				translate([x_rod_centres/2+17, 0, 0])
+					cube([20,30,50],center=true);
 			}
 			three_ends(chop=false);
 			bearings();
-			translate([rod_centres/2-7, 0, 0])
+			translate([x_rod_centres/2-7, 0, 0])
 					cube([4,48,15],center=true);
-			translate([-rod_centres/2+7, 0, 0])
+			translate([-x_rod_centres/2+7, 0, 0])
 					cube([4,48,15],center=true);
 			cube([54,4,15],center=true);
 
-			translate([rod_centres/2+14, 15, 0])
+			translate([x_rod_centres/2+14, 15, 0])
 				clamp();
-			translate([rod_centres/2+14, -15, 0])
+			translate([x_rod_centres/2+14, -15, 0])
 				mirror([0,1,0])
 					clamp();
 			
 		}
 	
-		translate([-rod_centres/2, -47, 0])
+		translate([-x_rod_centres/2, -47, 0])
 			cube([40,20,50],center=true);
 	
-		translate([-rod_centres/2+12, -40, 0])
+		translate([-x_rod_centres/2+12, -40, 0])
 			rotate([0,0,45])
 				cube([25,25,50],center=true);
 
@@ -90,11 +91,11 @@ module clamp()
 				belttensioner(holes=false,height=7);
 			translate([0, 0, -12.5])
 				beltclamp(holes=false,height=10);
-			translate([0, -9, -8.25])
+			translate([0, -9, -8.5])
 				difference()
 				{
 					cube([25,6,8],center=true);
-					translate([0, 2.5, 0])
+					translate([0, 2, 0])
 						mirror([0,1,0])
 							t25_indent();
 				}
@@ -119,11 +120,11 @@ module clamp()
 
 module bearings()
 {
-	translate([rod_centres/2, 36, -9.5])
+	translate([x_rod_centres/2, 36, -9.5])
 		bearing_holder(with_mountplate=false, vertical=false, slope=false,igus=false);
-	translate([rod_centres/2, -36, -9.5])
+	translate([x_rod_centres/2, -36, -9.5])
 		bearing_holder(with_mountplate=false, vertical=false, slope=false,igus=false);
-	translate([-rod_centres/2, 36, -9.5])
+	translate([-x_rod_centres/2, 36, -9.5])
 		bearing_holder(with_mountplate=false, vertical=false, slope=false,igus=false);
 }
 
@@ -204,7 +205,7 @@ module hot_end(block=false, hole=false)
 				
 						
 				
-						translate([22, 2 ,5.5])
+						/*translate([22, 2 ,5.5])
 						difference()
 						{
 							cube([16,12,24],center=true);
@@ -217,7 +218,7 @@ module hot_end(block=false, hole=false)
 									cube([26,40,16],center=true);
 							}
 				
-						}
+						}*/
 					}
 				
 					translate([18, 2,0])
@@ -241,10 +242,10 @@ module rods_and_belt()
 {
 	union()
 	{
-		translate([rod_centres/2+14, 0, 10])
+		translate([x_rod_centres/2+14, 0, 10])
 			cube([6, 200,2],center=true);
 		for(x=[-1,1])
-		translate([x*rod_centres/2,0,0])
+		translate([x*x_rod_centres/2,0,0])
 			rotate([90,0,0])
 				cylinder(r=bushing_rodsize/2,h=200,center=true);
 	}

@@ -18,17 +18,17 @@ include <bearing-mount-include.scad>
 // 9 Feb 2012
 
 // Print 1 of the objects generated when this is true, and one when it is false.
-motor=true;
+motor=false;
 
 // Set this false for Igus bearings, true for LM8UUs
 
 lm8uu=false;
 
 corection = 1.17; 
-back_clamp=[-25, -5, 0];
-front_clamp=[25, -5, 0];
+back_clamp=[-x_rod_centres/2, -5, 0];
+front_clamp=[x_rod_centres/2, -5, 0];
 z_adjust_radius=31.6;
-z_adjust_angle=35;
+z_adjust_angle=45;
 scaffold=false;
 
 
@@ -88,22 +88,22 @@ union(){
 
 difference(){
 union(){
-translate(v = [-25, -40, -16.6])cube(size = [20,40,15.8], center = true);
-translate(v = [25, -40, -16.6])cube(size = [20,40,15.8], center = true);
+translate(v = [-x_rod_centres/2+5, -40, -16.6])cube(size = [x_rod_centres/2-5,40,15.8], center = true);
+translate(v = [x_rod_centres/2-5, -40, -16.6])cube(size = [x_rod_centres/2-5,40,15.8], center = true);
 }
 
 
 //round corners
-translate(v = [35.1, -60.1, -25]) rotate(a=[0,0,90]) roundcorner(round_corner_diameter);
-translate(v = [35.1, -19.9, -25]) rotate(a=[0,0,-180]) roundcorner(round_corner_diameter);
+translate(v = [x_rod_centres/2 + 10.1 , -60.1, -25]) rotate(a=[0,0,90]) roundcorner(round_corner_diameter);
+translate(v = [x_rod_centres/2 + 10.1, -19.9, -25]) rotate(a=[0,0,-180]) roundcorner(round_corner_diameter);
 
 
 //holes for X axis
-translate(v = [-25, -18, -16.7]) rotate(a=[90,0,0]) {
+translate(v = [-x_rod_centres/2, -18, -16.7]) rotate(a=[90,0,0]) {
 	translate(v = [0, 0, 22]) cylinder(h = 42, r=4.5, $fn=20, center=true);
 	translate(v = [0, 2.60, 22]) rotate(a=[0,0,0]) cylinder(h = 42, r=3.65, $fn=6, center=true);
 }
-translate(v = [25, -18, -16.7]) rotate(a=[90,0,0]) {
+translate(v = [x_rod_centres/2, -18, -16.7]) rotate(a=[90,0,0]) {
 	translate(v = [0, 0, 22]) cylinder(h = 42, r=4.5, $fn=20, center=true);
 	translate(v = [0, 2.60, 22]) rotate(a=[0,0,0]) cylinder(h = 42, r=3.65, $fn=6, center=true);
 }
@@ -198,7 +198,7 @@ if(motor)
 		union()
 		{
 
-			translate(v = [21, -24.0, 20.5]) 
+			translate(v = [x_rod_centres/2-4, -24.0, 20.5]) 
 			difference()
 			{
 				cube(size = [24,2,38], center = true); // Changed to a web
@@ -207,19 +207,19 @@ if(motor)
 						cube(size = [34,8,55], center = true);
 			}
 
-			translate(v = [32.5, 2, 13.5]) cube(size = [5,54,52], center = true);
-			translate(v = [22.5, 2, -11]) cube(size = [20,54,3], center = true);
+			translate(v = [x_rod_centres/2 + 7.5, 2, 13.5]) cube(size = [5,54,52], center = true);
+			translate(v = [x_rod_centres/2 - 2.5, 2, -11]) cube(size = [20,54,3], center = true);
 		}
 			
 		// some reduction of bottom part 
-		translate(v = [15, 15, -11]) rotate ([0,0,-17]) cube(size = [20,80,25], center = true);
+		translate(v = [x_rod_centres/2 - 10, 15, -11]) rotate ([0,0,-17]) cube(size = [20,80,25], center = true);
 		
 		translate(v = [0, 0, -4.7])
 		{
-			translate(v = [32.5, 7, 23.5]) rotate(a=[0,90,0]) rotate(a=[0,0,30]) 
+			translate(v = [x_rod_centres/2 + 7.5, 7, 23.5]) rotate(a=[0,90,0]) rotate(a=[0,0,30]) 
 				cylinder(h = 10, r=12, $fn=20, center=true);
 		
-			translate(v = [30, 7, 23]) rotate(a=[0,90,0]){rotate ([0,0,45]) translate([20,0,0]) 
+			translate(v = [x_rod_centres/2 + 5, 7, 23]) rotate(a=[0,90,0]){rotate ([0,0,45]) translate([20,0,0]) 
 					cube(size = [9,3.2,25], center = true);
 			rotate ([0,0,-45]) translate([20,0,0]) cube(size = [9,3.2,25], center = true);
 			rotate ([0,0,135]) translate([20,0,0]) cube(size = [9,3.2,25], center = true);
@@ -246,18 +246,18 @@ if(motor)
 		{
 			union()
 			{
-				translate(v = [18, -24, 15]) cube(size = [26.5,2,25], center = true); // New web
-				translate(v = [21, 14, 15]) 
+				translate(v = [x_rod_centres/2-12, -24, 15]) cube(size = [x_rod_centres/2 + 1,2,25], center = true); // New web
+				translate(v = [x_rod_centres/2-4, 14, 15]) 
 				{
 					difference()
 					{
 						cube(size = [24,2,25], center = true); // New web
-						translate(v = [-21, 0, 0]) 
+						translate(v = [-x_rod_centres/2+10, 0, 0]) 
 							rotate([0,20,0])
 								cube(size = [34,8,55], center = true);
 					}
 				}
-				translate(v = [32.5, -5, 12.5]) cube(size = [5,40,30], center = true);
+				translate(v = [x_rod_centres/2 + 7.5, -5, 12.5]) cube(size = [5,40,30], center = true);
 			}
 		
 		translate(v = [32.5, -6, 28-3-4.7]) rotate(a=[0,90,0]) cylinder(h = 90, r=m8_diameter/2, $fn=9, center=true);
@@ -271,9 +271,9 @@ if(motor)
 }
 
 //two more rounded corners
-translate(v = [-35.1,-25.1,-5]) rotate(a=[0,0,0]) roundcorner(5);
+translate(v = [-x_rod_centres/2 - 10.1,-25.1,-5]) rotate(a=[0,0,0]) roundcorner(5);
 if(!motor)
-	translate(v = [-35.1, +15.1, -5]) rotate(a=[0,0,-90]) roundcorner(5);
+	translate(v = [-x_rod_centres/2 - 10.1, +15.1, -5]) rotate(a=[0,0,-90]) roundcorner(5);
 }
 }
 

@@ -13,7 +13,7 @@
 
 //Test
 //rotate([-90,0,0])
-//	bearing_holder(with_mountplate=false, vertical=true, slope=false,igus=true);
+//	bearing_holder(with_mountplate=false, vertical=true, slope=true,igus=true);
 
 
 // LM8UU/rod dimensions
@@ -50,7 +50,10 @@ plate_thickness=10;// thickness of mount plate
 igus_od=9.65;
 igus_flat=13;
 igus_length=8;
-igus_thick=2;
+igus_thick=1;
+
+
+
 
 
 
@@ -171,27 +174,27 @@ module bearing_holder(with_mountplate=false, vertical=false, slope=false,igus=fa
 			translate([gap_width/2,0,screw_elevation])
 				rotate([0,90,0])
 					cylinder(r=(((nut_wrench_size+nut_surround_thickness*2)/cos(30))/2), 
-						h=(body_width-gap_width)/2, $fn=6);
+						h=(body_width-gap_width)/1.3, $fn=6);
 			if(vertical)
 			{
-			translate([gap_width/2+(body_width-gap_width)/4,3,1.145*screw_elevation/2])
+			translate([gap_width/2+(body_width-gap_width)/2.6,3,1.145*screw_elevation/2])
 				difference()
 				{
-					cube([(body_width-gap_width)/2,nut_wrench_size+(nut_surround_thickness*2)+6,
+					cube([(body_width-gap_width)/1.3,nut_wrench_size+(nut_surround_thickness*2)+6,
 						1.145*screw_elevation], center=true);
-					translate([0,0.55*(1+nut_wrench_size+(nut_surround_thickness*2)+5),screw_elevation/5])
+					translate([1,0.55*(1+nut_wrench_size+(nut_surround_thickness*2)+5),screw_elevation/5])
 						rotate([0,0,45])
 							cube([1+(body_width-gap_width)/2,1+nut_wrench_size+(nut_surround_thickness*2)+5,
-								1+screw_elevation], center=true);
+								15+screw_elevation], center=true);
 					translate([0,0.55*(1+nut_wrench_size+(nut_surround_thickness*2)+5),0.838*screw_elevation])
 						rotate([60,0,0])
-							cube([1+(body_width-gap_width)/2,1+nut_wrench_size+(nut_surround_thickness*2)+5,
+							cube([1+(body_width-gap_width)/1.3,1+nut_wrench_size+(nut_surround_thickness*2)+5,
 								1+screw_elevation], center=true);
 				}
 			} else
 			{
-				translate([(gap_width/2+(body_width-gap_width)/4),0,screw_elevation/2])
-				cube([(body_width-gap_width)/2,screw_head_dia+(nut_surround_thickness*2),screw_elevation],
+				translate([(gap_width/2+(body_width-gap_width)/2.6),0,screw_elevation/2])
+				cube([(body_width-gap_width)/1.3,screw_head_dia+(nut_surround_thickness*2),screw_elevation],
 					center=true);
 			}
 
@@ -199,28 +202,28 @@ module bearing_holder(with_mountplate=false, vertical=false, slope=false,igus=fa
 			translate([-gap_width/2,0,screw_elevation])
 				rotate([0,-90,0])
 					cylinder(r=(((nut_wrench_size+nut_surround_thickness*2)/cos(30))/2), 
-						h=(body_width-gap_width)/2, $fn=6);
+						h=(body_width-gap_width)/1.3, $fn=6);
 					//cylinder(r=(screw_head_dia/2)+nut_surround_thickness, h=(body_width-gap_width)/2, $fn=20);
 			if(vertical)
 			{
-			translate([-(gap_width/2+(body_width-gap_width)/4),3,1.145*screw_elevation/2])
+			translate([-(gap_width/2+(body_width-gap_width)/2.6),3,1.145*screw_elevation/2])
 				difference()
 				{
-					cube([(body_width-gap_width)/2,nut_wrench_size+(nut_surround_thickness*2)+6,
+					cube([(body_width-gap_width)/1.3,nut_wrench_size+(nut_surround_thickness*2)+6,
 						1.145*screw_elevation], center=true);
-					translate([0,0.55*(1+nut_wrench_size+(nut_surround_thickness*2)+5),screw_elevation/5])
+					translate([-2.5,0.55*(1+nut_wrench_size+(nut_surround_thickness*2)+5),screw_elevation/5])
 						rotate([0,0,-45])
-							cube([1+(body_width-gap_width)/2,1+nut_wrench_size+(nut_surround_thickness*2)+5,
-								1+screw_elevation], center=true);
+							cube([1+(body_width-gap_width)/1.3,1+nut_wrench_size+(nut_surround_thickness*2)+5,
+								15+screw_elevation], center=true);
 					translate([0,0.55*(1+nut_wrench_size+(nut_surround_thickness*2)+5),0.838*screw_elevation])
 						rotate([60,0,0])
-							cube([1+(body_width-gap_width)/2,1+nut_wrench_size+(nut_surround_thickness*2)+5,
+							cube([1+(body_width-gap_width)/1.3,1+nut_wrench_size+(nut_surround_thickness*2)+5,
 								1+screw_elevation], center=true);
 				}
 			} else
 			{
-				translate([-(gap_width/2+(body_width-gap_width)/4),0,screw_elevation/2])
-				cube([(body_width-gap_width)/2,screw_head_dia+(nut_surround_thickness*2),screw_elevation],
+				translate([-(gap_width/2+(body_width-gap_width)/2.6),0,screw_elevation/2])
+				cube([(body_width-gap_width)/1.3,screw_head_dia+(nut_surround_thickness*2),screw_elevation],
 					center=true);
 			}
 
@@ -246,13 +249,16 @@ module bearing_holder(with_mountplate=false, vertical=false, slope=false,igus=fa
 								translate([0,(igus_flat+0.5)/2,igus_thick])
 									cube([igus_flat+0.5,igus_flat+0.5,2*igus_thick], center=true);
 							}
-							translate([0.726*(igus_flat+0.5),(igus_flat+0.5)/2,igus_thick])
+							translate([0.726*(igus_flat+0.5),(igus_flat+0.5)/2,-igus_thick/1.7])
 								rotate([0,45,0])
 									cube([igus_flat+0.5,igus_flat+3,2*igus_thick], center=true);
-							translate([-0.726*(igus_flat+0.5),(igus_flat+0.5)/2,igus_thick])
+							translate([-0.726*(igus_flat+0.5),(igus_flat+0.5)/2,-igus_thick/1.7])
 								rotate([0,-45,0])
 									cube([igus_flat+0.5,igus_flat+3,2*igus_thick], center=true);
 						}
+						translate([0,7,6])
+									cube([20,10,12], center=true);
+
 					} else
 					{
 						union()
@@ -296,19 +302,19 @@ module bearing_holder(with_mountplate=false, vertical=false, slope=false,igus=fa
 			cube([gap_width,LM8UU_length+102,(LM8UU_dia/2)+screw_bushing_space+(screw_thread_dia/2)+(nut_dia/2)+nut_surround_thickness+1]);
 	
 		// screw hole (one all the way through)
-		translate([0,0,screw_elevation])
+		translate([0,0,screw_elevation+1])
 			rotate([0,90,0])
-				cylinder(r=screw_thread_dia/2, h=body_width+3, center=true, $fn=20);
+				cylinder(r=screw_thread_dia/2, h=body_width+5, center=true, $fn=20);
 	
 		// nut trap
-		translate([gap_width/2+body_wall_thickness,0,screw_elevation])
+		translate([gap_width/2+body_wall_thickness+2,0,screw_elevation+1])
 			rotate([0,90,0])
-				cylinder(r=nut_dia/2, h=body_width/2-gap_width/2-body_wall_thickness+1,$fn=6);
+				cylinder(r=nut_dia/2, h=body_width/2-gap_width/2-body_wall_thickness+3,$fn=6);
 	
 		// screw head hole
-		translate([-(gap_width)/2-body_wall_thickness,0,screw_elevation])
+		translate([-(gap_width)/2-body_wall_thickness-2,0,screw_elevation+1])
 			rotate([0,-90,0])
-				cylinder(r=screw_head_dia/2, h=body_width/2-gap_width/2-body_wall_thickness+1,$fn=20);
+				cylinder(r=screw_head_dia/2, h=body_width/2-gap_width/2-body_wall_thickness+3,$fn=20);
 
 		translate([0, 18.5+body_length, 25])
 			rotate([45,0,0])

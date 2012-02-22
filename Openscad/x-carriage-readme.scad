@@ -2,8 +2,10 @@ include <configuration.scad>
 include <bearing-mount-include.scad>
 include <belt-clamp-readme.scad>
 
+// Print one plate and one lid.
 
 plate();
+//lid();
 
 //rods_and_belt();
 
@@ -13,9 +15,33 @@ plate();
 
 //three_ends(clearance=true, chop=false);
 
+//hot_end();
+//hot_end_holes();
+
+
+pillar = [26.5, 2 ,4];
+
+
+module lid()
+{
+	difference()
+	{
+		translate([-10,-10,12])
+			cube([x_rod_centres+11,56,4],center=true);
+		three_end_holes();
+		translate([6,-38,12])
+			cube([60,40,10],center=true);		
+		translate([-x_rod_centres/2+12, -40, 0])
+			rotate([0,0,45])
+				cube([25,25,50],center=true);
+
+	}
+}
+
 
 module plate()
 {
+
 	difference()
 	{
 		union()
@@ -43,6 +69,8 @@ module plate()
 					clamp();
 			
 		}
+
+		three_end_holes();
 	
 		translate([-x_rod_centres/2, -47, 0])
 			cube([40,20,50],center=true);
@@ -55,6 +83,19 @@ module plate()
 		translate([i*7.5, 0, 3])
 			rotate([90,0,])
 				cylinder(r=m3_diameter/2,h=20,center=true,$fn=20);
+
+		translate([-x_rod_centres/2,27,0])
+		difference()
+		{
+			cube([40,9,40],center=true);
+			translate([7,0,-15])
+				cube([2,20,20],center=true);
+			translate([-7,0,-15])
+				cube([2,20,20],center=true);
+
+		}
+
+
 	}
 
 }
@@ -139,9 +180,71 @@ module three_ends(clearance=false, chop=false)
 					translate([0,-30,0])
 						hot_end(block=clearance,hole=chop);
 
-		translate([-67,-5,0])
+		translate([-67,-4.5,0])
 			rotate([0, 0, 270])
 				hot_end(block=clearance,hole=chop);
+	}
+}
+
+module three_end_holes()
+{
+	translate([0,0,-3])
+	{
+		for(i=[0,1])
+			translate([0, 7*(i-0.5),0])
+				rotate([0, 0, i*180])
+					translate([0,-30,0])
+						hot_end_holes();
+
+		translate([-67,-4.5,0])
+			rotate([0, 0, 270])
+				hot_end_holes();
+	}
+}
+
+module hot_end_holes()
+{
+	translate([0, 27/2+10/2,-3])
+	union()
+	{
+		translate([18, 2,0])
+			cylinder(r=m3_diameter/2,h=60,center=true,$fn=20);
+					
+		translate([18, 2,-8])
+			rotate([0,0,30])
+				cylinder(r=m3_nut_diameter/2,h=10,center=true,$fn=6);
+		
+		translate([-18, -6,0])
+			rotate([90,0,0])
+				cylinder(r=3.5,h=30,center=true,$fn=20);
+
+		translate(pillar)
+			cylinder(r=1.7,h=60,center=true,$fn=20);
+
+
+		union()
+		{
+			cylinder(r=3.5,h=15,center=true,$fn=20);
+			translate([0, -5,0])
+				cube([7,10,15],center=true);
+		}
+
+		translate([0,0,15])
+		union()
+		{
+			cylinder(r=1.7,h=20,center=true,$fn=20);
+			translate([0, -5,0])
+				cube([3,10,20],center=true);
+		}
+		
+		for(x=[-1,1])
+			translate([x*15/2, 0,3])
+				union()
+				{
+					cylinder(r=m3_diameter/2,h=50,center=true,$fn=20);
+					translate([0, -5,0])
+						cube([m3_diameter,10,50],center=true);
+				}
 	}
 }
 
@@ -175,63 +278,15 @@ module hot_end(block=false, hole=false)
 		
 			translate([0, 27/2+10/2,0])
 			{
-				difference()
-				{
 					union()
 					{
-						difference()
-						{
-				
-							translate([-3, 2,-3])
-								cube([51,12,7],center=true);
-				
-							translate([0, 0,0])
-								union()
-								{
-									cylinder(r=3.5,h=30,center=true,$fn=20);
-									translate([0, -5,0])
-										cube([7,10,20],center=true);
-								}
-								
-							for(x=[-1,1])
-							translate([x*15/2, 0,0])
-								union()
-								{
-									cylinder(r=m3_diameter/2,h=20,center=true,$fn=20);
-									translate([0, -5,0])
-										cube([m3_diameter,10,20],center=true);
-								}
-						}
-				
-						
-				
-						/*translate([22, 2 ,5.5])
-						difference()
-						{
-							cube([16,12,24],center=true);
-							translate([-6.5, 0, -4])
-							difference()
-							{
-								cube([16,30,26],center=true);
-								translate([6, 0, 16])
-								rotate([0,45,0])
-									cube([26,40,16],center=true);
-							}
-				
-						}*/
+
+						translate([-3, 2,-3])
+							cube([51,12,7],center=true);
+						translate(pillar)
+							scale([1,1.6,1])
+								cylinder(r=3.5,h=19,center=true,$fn=20);
 					}
-				
-					translate([18, 2,0])
-						cylinder(r=m3_diameter/2,h=40,center=true,$fn=20);
-				
-					translate([18, 2,-8])
-						rotate([0,0,30])
-							cylinder(r=m3_nut_diameter/2,h=10,center=true,$fn=6);
-	
-					translate([-18, 0,0])
-						rotate([90,0,0])
-							cylinder(r=3.5,h=30,center=true,$fn=20);
-				}
 			}	
 		
 		} 

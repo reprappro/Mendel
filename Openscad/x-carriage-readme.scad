@@ -1,3 +1,16 @@
+/*
+
+3-head Mendel X Carriage
+
+Adrian Bowyer
+RepRapPro Ltd 
+
+23 February 2012
+
+Licence: GPL
+
+*/
+
 include <configuration.scad>
 include <bearing-mount-include.scad>
 include <belt-clamp-readme.scad>
@@ -20,6 +33,7 @@ plate();
 
 
 pillar = [26.5, 2 ,4];
+pillar_m = [-26.5, 2 ,4];
 
 
 module lid()
@@ -126,9 +140,9 @@ module clamp()
 	{
 		union()
 		{
-			translate([0, 0, 5])
+			translate([0, 0, 7])
 				beltguide(holes=false,height=7);
-			translate([0, 0, -4])
+			translate([0, 0, -3])
 				belttensioner(holes=false,height=7);
 			translate([0, 0, -12.5])
 				beltclamp(holes=false,height=10);
@@ -162,11 +176,11 @@ module clamp()
 module bearings()
 {
 	translate([x_rod_centres/2, 36, -9.5])
-		bearing_holder(with_mountplate=false, vertical=false, slope=false,igus=false);
+		bearing_holder(clamp=false,with_mountplate=false, vertical=false, slope=false,igus=false);
 	translate([x_rod_centres/2, -36, -9.5])
-		bearing_holder(with_mountplate=false, vertical=false, slope=false,igus=false);
+		bearing_holder(clamp=false,with_mountplate=false, vertical=false, slope=false,igus=false);
 	translate([-x_rod_centres/2, 36, -9.5])
-		bearing_holder(with_mountplate=false, vertical=false, slope=false,igus=false);
+		bearing_holder(clamp=false,with_mountplate=false, vertical=false, slope=false,igus=false);
 }
 
 
@@ -178,11 +192,11 @@ module three_ends(clearance=false, chop=false)
 			translate([0, 7*(i-0.5),0])
 				rotate([0, 0, i*180])
 					translate([0,-30,0])
-						hot_end(block=clearance,hole=chop);
+						hot_end(block=clearance,hole=chop,tail=true);
 
 		translate([-67,-4.5,0])
 			rotate([0, 0, 270])
-				hot_end(block=clearance,hole=chop);
+				hot_end(block=clearance,hole=chop,tail=false);
 	}
 }
 
@@ -194,15 +208,15 @@ module three_end_holes()
 			translate([0, 7*(i-0.5),0])
 				rotate([0, 0, i*180])
 					translate([0,-30,0])
-						hot_end_holes();
+						hot_end_holes(tail=true);
 
 		translate([-67,-4.5,0])
 			rotate([0, 0, 270])
-				hot_end_holes();
+				hot_end_holes(tail=false);
 	}
 }
 
-module hot_end_holes()
+module hot_end_holes(tail=true)
 {
 	translate([0, 27/2+10/2,-3])
 	union()
@@ -221,6 +235,9 @@ module hot_end_holes()
 		translate(pillar)
 			cylinder(r=1.7,h=60,center=true,$fn=20);
 
+		if(tail)
+			translate(pillar_m)
+				cylinder(r=1.7,h=60,center=true,$fn=20);
 
 		union()
 		{
@@ -249,7 +266,7 @@ module hot_end_holes()
 }
 
 
-module hot_end(block=false, hole=false)
+module hot_end(block=false, hole=false,tail=true)
 {
 	translate([0,0,-3])
 	{
@@ -286,6 +303,10 @@ module hot_end(block=false, hole=false)
 						translate(pillar)
 							scale([1,1.6,1])
 								cylinder(r=3.5,h=19,center=true,$fn=20);
+						if(tail)
+							translate(pillar_m)
+								scale([1,1.6,1])
+									cylinder(r=3.5,h=19,center=true,$fn=20);
 					}
 			}	
 		

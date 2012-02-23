@@ -12,8 +12,7 @@
 
 
 //Test
-//rotate([-90,0,0])
-//	bearing_holder(with_mountplate=false, vertical=true, slope=true,igus=true);
+//bearing_holder(clamp=false,with_mountplate=true, vertical=false, slope=false,igus=false);
 
 
 // LM8UU/rod dimensions
@@ -70,12 +69,12 @@ module mount_plate()
 {
 	difference()
 	{
-		translate([-projection/2,0,plate_thickness/2])
-		cube([projection+body_width+2*screw_head_dia+4*nut_surround_thickness,screw_head_dia+
+		translate([-projection/2+1,0,plate_thickness/2])
+		cube([2+projection+body_width+2*screw_head_dia+4*nut_surround_thickness,screw_head_dia+
 				2*nut_surround_thickness,plate_thickness], center=true);
 
 		for(i=[-1,1])
-			translate([i*(body_width/2+nut_surround_thickness+screw_head_dia/2),0,-0.5])
+			translate([i*(2+body_width/2+nut_surround_thickness+screw_head_dia/2),0,-0.5])
 				cylinder(r=screw_thread_dia/2, h=20, $fn=20);
 
 		translate([-(body_width/2+nut_surround_thickness+screw_head_dia/2 + projection - screw_head_dia/2+2),0,-0.5])
@@ -94,7 +93,7 @@ module mount_plate()
 // slope true adds features that allows the holder to be printed vertically "in mid air" with the +Y face down without support
 // Igus true creates a holder for an Igus slider bearing; false makes an LM8UU holder
 
-module bearing_holder(with_mountplate=false, vertical=false, slope=false,igus=false)
+module bearing_holder(clamp=false,with_mountplate=false, vertical=false, slope=false,igus=false)
 {
 	difference()
 	{
@@ -138,6 +137,7 @@ module bearing_holder(with_mountplate=false, vertical=false, slope=false,igus=fa
 		{
 			if (with_mountplate) 
 			mount_plate();
+
 	
 			if(slope)
 			{
@@ -301,20 +301,27 @@ module bearing_holder(with_mountplate=false, vertical=false, slope=false,igus=fa
 		translate([-(gap_width/2),-(body_length/2)-1-50,body_height/2])
 			cube([gap_width,LM8UU_length+102,(LM8UU_dia/2)+screw_bushing_space+(screw_thread_dia/2)+(nut_dia/2)+nut_surround_thickness+1]);
 	
-		// screw hole (one all the way through)
-		translate([0,0,screw_elevation+1])
-			rotate([0,90,0])
-				cylinder(r=screw_thread_dia/2, h=body_width+5, center=true, $fn=20);
-	
-		// nut trap
-		translate([gap_width/2+body_wall_thickness+2,0,screw_elevation+1])
-			rotate([0,90,0])
-				cylinder(r=nut_dia/2, h=body_width/2-gap_width/2-body_wall_thickness+3,$fn=6);
-	
-		// screw head hole
-		translate([-(gap_width)/2-body_wall_thickness-2,0,screw_elevation+1])
-			rotate([0,-90,0])
-				cylinder(r=screw_head_dia/2, h=body_width/2-gap_width/2-body_wall_thickness+3,$fn=20);
+		if(clamp)
+		{
+			// screw hole (one all the way through)
+			translate([0,0,screw_elevation+1])
+				rotate([0,90,0])
+					cylinder(r=screw_thread_dia/2, h=body_width+5, center=true, $fn=20);
+		
+			// nut trap
+			translate([gap_width/2+body_wall_thickness+2,0,screw_elevation+1])
+				rotate([0,90,0])
+					cylinder(r=nut_dia/2, h=body_width/2-gap_width/2-body_wall_thickness+3,$fn=6);
+		
+			// screw head hole
+			translate([-(gap_width)/2-body_wall_thickness-2,0,screw_elevation+1])
+				rotate([0,-90,0])
+					cylinder(r=screw_head_dia/2, h=body_width/2-gap_width/2-body_wall_thickness+3,$fn=20);
+		} else
+		{
+			translate([0, 0, 40])
+				cube([50,50,50], center=true);
+		}
 
 		translate([0, 18.5+body_length, 25])
 			rotate([45,0,0])

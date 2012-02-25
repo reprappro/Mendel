@@ -1,0 +1,4 @@
+ elements-dir ~/footprints
+     schematics heatbed.sch
+     output-name heatbed
+     skip-m4

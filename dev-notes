@@ -1,0 +1,36 @@
+DEVELOPMENT NOTES
+=================
+
+Adrian, February 2012
+
+The X rods etc are all 30mm longer than Prusa Mendel to accommodate the new 3-head X carriage.
+
+The Z drive is M5, for easy interfacing to 5mm diameter stepper shafts.
+
+The vertex feet have angled holes to allow a diagonal rod to be run across the base for extra rigidity and for adjusting the foot-levelling.
+
+The ends of the X carriage have holes to accommodate an adjustment screw that hits the Z endstop switch for ease of Z adjustment.
+
+The Y drive has a cage for extra rigidity.
+
+The Z motor mounts have integral Z-rod holders.
+
+The Y and Z belt holders have integral tension adjusters.
+
+
+Electronics
+-----------
+
+There are two configurations that need to be considered: driving 1, 2 or 3 independent extruders, and driving a single colour-mix extruder with 5 filaments.  
+
+The X carriage can physically mount a 5-colour mixer head plus two more heads, implying a need for 7 drives (or 15 if they are all mixer heads...), but let's cross that bridge in a little while.
+
+The overall plan is to have a Melzi/Sanguinololu master driving the machine, with a secondary Sanguinololu slave driving the extra heads.
+
+For three heads, one will be driven by the master, and the other two by the slave (which will only have two Pololus fitted).  The slave has bed plus extruder electronics of its own, and so they can be used to control the temperatures of the two extra heads.
+
+For the five colour mixer, only one heater needs be controlled, which can be done by the master.  The slave will just be controlling four extra steppers.
+
+We should have enough comms simply by connecting the spare master header and that on the slave by one ribbon cable.
+
+

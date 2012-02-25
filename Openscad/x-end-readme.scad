@@ -18,7 +18,7 @@ include <bearing-mount-include.scad>
 // 9 Feb 2012
 
 // Print 1 of the objects generated when this is true, and one when it is false.
-motor=false;
+motor=true;
 
 // Set this false for Igus bearings, true for LM8UUs
 
@@ -67,6 +67,37 @@ difference()
 {
 union()
 {
+
+if(motor)
+{
+	// Block the ends
+	translate(v = [-x_rod_centres/2+0.5, 13, 8])cube(size = [10,4,13], center = true);
+	translate(v = [x_rod_centres/2-0.5, 13, 8])cube(size = [10,4,13], center = true);
+}else
+{
+	// End adjust
+	difference()
+	{
+		union()
+		{
+			translate(v = [-x_rod_centres/2, 18, 6.5])cube(size = [17,14,13], center = true);
+			translate(v = [x_rod_centres/2, 18, 6.5])cube(size = [17,14,13], center = true);
+		}
+		translate(v = [-x_rod_centres/2, 13, 6.5])cube(size = [9,14,23], center = true);
+		translate(v = [x_rod_centres/2, 13, 6.5])cube(size = [9,14,23], center = true);
+		//Adjustment screws
+		translate(v = [-x_rod_centres/2, 35, -16.7+24.5]) rotate(a=[90,0,0]) 
+		{
+			translate(v = [0, 0, 22]) cylinder(h = 42, r=1.7, $fn=20, center=true);
+			translate(v = [0, 0, 17]) rotate(a=[0,0,30]) cylinder(h = 8, r=m3_nut_diameter/2, $fn=6, center=true);
+		}
+		translate(v = [x_rod_centres/2, 35, -16.7+24.5]) rotate(a=[90,0,0]) 
+		{
+			translate(v = [0, 0, 22]) cylinder(h = 42, r=1.5, $fn=20, center=true);
+			translate(v = [0, 0, 17])   rotate(a=[0,0,30]) cylinder(h = 8, r=m3_nut_diameter/2, $fn=6, center=true);
+		}
+	}
+}
 
 if(scaffold)
 {
@@ -231,10 +262,9 @@ if(motor)
 
 	}
 
-	// Cable support holes
-	translate([-30, -16, 25]) rotate([0,90,0])cylinder(h = 20, r=1.5, $fn=15, center=true);
-	translate([-26, -16, 22]) rotate([90,0,0])cylinder(h = 20, r=1.5, $fn=15, center=true);
-
+// Cable support holes
+	translate([-40, -18, 23]) rotate([0,90,0])cylinder(h = 20, r=1.5, $fn=15, center=true);
+	translate([-36, -13, 20]) rotate([90,0,0])cylinder(h = 20, r=1.5, $fn=15, center=true);
 	}
 }else
 {

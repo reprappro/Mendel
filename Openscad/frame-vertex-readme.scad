@@ -19,7 +19,7 @@ include <configuration.scad>
 
 // Print 4 with basefoot true plus 2 with basefoot false
 
-basefoot=false;
+basefoot=true;
 drill_diag=true;
 
 
@@ -29,10 +29,10 @@ vfvertex_height=m8_horizontal+4;
 
 // Distance between feet used to calculate diagonal angle
 
-xfeet = 235;
+xfeet = 265;
 yfeet = 320;
 
-diagonal=atan2(235,320);
+diagonal=atan2(xfeet,yfeet);
 diag_y = 7;
 
 

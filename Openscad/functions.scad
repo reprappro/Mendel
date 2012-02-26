@@ -34,3 +34,23 @@ module roundcorner(diameter){
 	}
 }
 
+module t25_indent()
+{
+	union()
+	{
+		for(z=[-5:5])
+			translate([0,-5,z*2.5])
+				difference()
+				{
+					cube([30,10,1.25],center=true);
+					translate([0, 5, 1.7])
+						rotate([-45,0,0])
+							cube([40,10,2],center=true);
+					translate([0, 5, -1.7])
+						rotate([45,0,0])
+							cube([40,10,2],center=true);
+
+				}
+	}
+}
+

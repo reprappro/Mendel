@@ -18,7 +18,7 @@ include <bearing-mount-include.scad>
 // 9 Feb 2012
 
 // Print 1 of the objects generated when this is true, and one when it is false.
-motor=true;
+motor=false;
 
 // Set this false for Igus bearings, true for LM8UUs
 

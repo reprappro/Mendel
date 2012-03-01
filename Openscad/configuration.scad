@@ -27,7 +27,7 @@ echo("WARNING: INVALID CONFIGURATION");
 
 vars=[
 //[m8_dia,m8_nut, m4_dia, m4_nut, m3_dia, m3_nut, bush_dia, mot_shaft, bush_rod, bush_outerdia, bush_length, m5_dia, m5_nut]
-[9, 16.4, 5,9, 4.4, 7, 11, 5.3, 8, 16, 11, 5.6, 10],//metric
+[9, 16.4, 5,9, 3.4, 6.5, 11, 5.3, 8, 16, 11, 5.6, 10],//metric - M3 nut was 7; M3 was 4.4
 [9,15.7,5.5,10.6,5.5,10.6,11.5,5.3,7.9375,16,11,5.6, 10]//SAE
 ];
 
@@ -81,7 +81,9 @@ m5_nut_diameter = vars[variant][12];
 // Gap between the X rods
 
 x_rod_centres=70;
-
+y_rod_centres=183;
+belt_width=6;
+belt_clamp_centres=18;
 
 // Some basic functions, probably should be somewhere else
 module roundcorner(diameter){

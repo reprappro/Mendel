@@ -15,8 +15,15 @@ The Y drive has a cage for extra rigidity.
 
 The Z motor mounts have integral Z-rod holders.
 
-The Y and Z belt holders have integral tension adjusters.
+The Y and X belt holders have integral tension adjusters.
 
+5 extruder drives.  Maximum width is 50mm.  Shorter (fatter?) motor?
+
+m3_nut_diameter too big?  Reduced from 7 to 6.5. m3_nut reduced from 4.4 (!) to 3.4. 
+
+Heat shield under X carriage.
+
+Boxed Y motor mount for extra rigidity.
 
 Electronics
 -----------

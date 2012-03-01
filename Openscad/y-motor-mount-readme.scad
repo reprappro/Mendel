@@ -15,6 +15,8 @@ cyl_height = 24 ;
 
 
 module motor_mount() {
+rotate([0,180,0])
+mirror([0,0,1])
 difference() {
 union() {
 	linear_extrude(file="../dxf/ybracproj_extr.dxf", height = mount_thickness, origin =[0,0]);
@@ -50,7 +52,8 @@ translate([-20,-30,-5]) cylinder(h=30,r=15, center=true, $fn=40) ;
 } ; // end motor_mount
 
 module mount_cover() {
-
+rotate([0,180,0])
+mirror([0,0,1])
 difference() {
 
 union() {

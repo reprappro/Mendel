@@ -19,7 +19,8 @@ include <belt-clamp-readme.scad>
 // Print one plate and one lid.
 
 plate();
-//lid();
+
+//translate([0,0,20]) lid();
 
 //rods_and_belt();
 
@@ -33,22 +34,27 @@ plate();
 //hot_end_holes();
 
 
-pillar = [26.5, 2 ,4];
-pillar_m = [-26.5, 2 ,4];
+pillar = [26.5, 2 ,-4];
+pillar_m = [-26.5, 2 ,-4];
 
 
 module lid()
 {
+	
 	difference()
 	{
-		translate([-10,-10,12])
-			cube([x_rod_centres+11,56,4],center=true);
+		union()
+		{
+			translate([-11,-11,12])
+				cube([x_rod_centres+13,60,4],center=true);
+			three_ends(clearance=false, chop=-1);
+		}
 		three_end_holes();
-		translate([6,-38,12])
+		translate([6,-39,12])
 			cube([60,40,10],center=true);		
 		translate([-x_rod_centres/2+12, -40, 0])
 			rotate([0,0,45])
-				cube([25,25,50],center=true);
+				cube([35,25,50],center=true);
 
 	}
 }
@@ -65,11 +71,11 @@ module plate()
 			{
 				translate([-2, 0, -10])
 					cube([x_rod_centres+30,96,5],center=true);
-				three_ends(chop=true);
+				three_ends(chop=13);
 				translate([x_rod_centres/2+17, 0, 0])
 					cube([20,30,50],center=true);
 			}
-			three_ends(chop=false);
+			three_pillars();
 			bearings();
 			translate([x_rod_centres/2-7, 0, 0])
 					cube([4,48,15],center=true);
@@ -122,35 +128,43 @@ module clamp()
 	{
 		union()
 		{
-			translate([0, 0, 7])
-				beltguide(holes=false,grid=false,height=7);
-			translate([0, 0, -3])
-				belttensioner(holes=false,grid=false,height=10.5);
+
 			translate([0, 0, -12.5])
-				beltclamp(holes=false,grid=false,height=11);
-			translate([0, -9, -8.5])
+				belttensioner(holes=false,grid=false,height=28);
+			/*translate([0, -9, -8.5])
 				difference()
 				{
 					cube([25,6,8],center=true);
 					translate([0, 2, 0])
 						mirror([0,1,0])
 							t25_indent();
-				}
+				}*/
 			translate([-8, -4, -12])
 				rotate([45,0,0])
 					cube([5,25,25],center=true);
+
 		}
-		translate([-13, 0, 0])
-			cube([10,50,28],center=true);
+
+		translate([0, -9, -15])
+		rotate([-60,0,0])
+			cube([belt_width+1,15,15],center=true);
+
+		difference()
+		{
+			translate([-13, 0, 0])
+						cube([10,50,38],center=true);
+			translate([-6, 0, 11])
+						rotate([0,-30,0])
+						cube([15,60,40],center=true);
+		}
+		
 		translate([0, 0, -27.5])
 			cube([50,50,30],center=true);
-		translate([7, 0, -8.5])
+		for(i=[-1,1])
+		translate([i*(belt_clamp_centres/2-2), 0, 11])
 		{
 			rotate([90,0,0])
 				cylinder(r=1.7,h=30,center=true,$fn=20);
-			translate([0, -15, 0])
-			rotate([90,0,0])
-				cylinder(r=m3_nut_diameter/2,h=10,center=true,$fn=6);
 		}
 	}
 }
@@ -165,10 +179,43 @@ module bearings()
 		bearing_holder(clamp=false,with_mountplate=false, vertical=false, slope=false,igus=false);
 }
 
-
-module three_ends(clearance=false, chop=false)
+module pillars(tail=true)
 {
-	translate([0,0,-3])
+	translate([0, 27/2+10/2,2])
+	{
+			union()
+			{
+				translate(pillar)
+					scale([1,1.6,1])
+						cylinder(r=3.5,h=19,center=true,$fn=20);
+				if(tail)
+				translate(pillar_m)
+					scale([1,1.6,1])
+						cylinder(r=3.5,h=19,center=true,$fn=20);
+			}
+	}	
+}
+
+
+module three_pillars()
+{
+	translate([0,0,0])
+	{
+		for(i=[0,1])
+			translate([0, 7*(i-0.5),0])
+				rotate([0, 0, i*180])
+					translate([0,-30,0])
+						pillars(tail=true);
+
+		translate([-67,-4.5,0])
+			rotate([0, 0, 270])
+				pillars(tail=false);
+	}
+}
+
+module three_ends(clearance=false, chop=-1)
+{
+	translate([0,0,3])
 	{
 		for(i=[0,1])
 			translate([0, 7*(i-0.5),0])
@@ -184,7 +231,7 @@ module three_ends(clearance=false, chop=false)
 
 module three_end_holes()
 {
-	translate([0,0,-3])
+	translate([0,0,3])
 	{
 		for(i=[0,1])
 			translate([0, 7*(i-0.5),0])
@@ -200,19 +247,26 @@ module three_end_holes()
 
 module hot_end_holes(tail=true)
 {
-	translate([0, 27/2+10/2,-3])
+	
+	translate([0, 27/2+10/2,8])
 	union()
 	{
+
+		translate([23,2,2])
+		cube([1,14,7],center=true);
+
+		translate([3.5,8.5,2])
+		cube([40,1,7],center=true);
+
 		translate([18, 2,0])
 			cylinder(r=m3_diameter/2,h=60,center=true,$fn=20);
 					
-		translate([18, 2,-8])
+		translate([18, 2,8])
 			rotate([0,0,30])
 				cylinder(r=m3_nut_diameter/2,h=10,center=true,$fn=6);
 		
-		translate([-18, -6,0])
-			rotate([90,0,0])
-				cylinder(r=3.5,h=30,center=true,$fn=20);
+		translate([-20.3, 0,6.5])
+				cube([9.3,16,7],center=true);
 
 		translate(pillar)
 			cylinder(r=1.7,h=60,center=true,$fn=20);
@@ -228,7 +282,7 @@ module hot_end_holes(tail=true)
 				cube([7,10,15],center=true);
 		}
 
-		translate([0,0,15])
+		translate([0,0,-15])
 		union()
 		{
 			cylinder(r=1.7,h=20,center=true,$fn=20);
@@ -237,7 +291,7 @@ module hot_end_holes(tail=true)
 		}
 		
 		for(x=[-1,1])
-			translate([x*15/2, 0,3])
+			translate([x*15/2, 0,-3])
 				union()
 				{
 					cylinder(r=m3_diameter/2,h=50,center=true,$fn=20);
@@ -248,13 +302,13 @@ module hot_end_holes(tail=true)
 }
 
 
-module hot_end(block=false, hole=false,tail=true)
+module hot_end(block=false, hole=-1,tail=true)
 {
-	translate([0,0,-3])
+	translate([0,0,4.5])
 	{
-		if(hole)
+		if(hole>=0)
 		{
-			translate([0, 6, 0])
+			translate([0, 6-hole, 0])
 				cube([46,44,100],center=true);
 			
 		}else
@@ -275,22 +329,9 @@ module hot_end(block=false, hole=false,tail=true)
 				}
 			}
 		
-			translate([0, 27/2+10/2,0])
-			{
-					union()
-					{
+			translate([0,20.5,6])
+				cube([47,12,5],center=true);
 
-						translate([-3, 2,-3])
-							cube([51,12,7],center=true);
-						translate(pillar)
-							scale([1,1.6,1])
-								cylinder(r=3.5,h=19,center=true,$fn=20);
-						if(tail)
-							translate(pillar_m)
-								scale([1,1.6,1])
-									cylinder(r=3.5,h=19,center=true,$fn=20);
-					}
-			}	
 		
 		} 
 	}
@@ -300,8 +341,8 @@ module rods_and_belt()
 {
 	union()
 	{
-		translate([x_rod_centres/2+14, 0, 10])
-			cube([6, 200,2],center=true);
+		translate([x_rod_centres/2+14, 0, -13])
+			cube([belt_width, 200,2],center=true);
 		for(x=[-1,1])
 		translate([x*x_rod_centres/2,0,0])
 			rotate([90,0,0])

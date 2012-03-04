@@ -1,14 +1,14 @@
-# release: pcb 20091103
-# date:    Wed Nov 16 10:51:57 2011
-# user:    jeanmarc (jeanmarc,,,)
-# host:    jeanmarc-laptop
+# release: pcb 20100929
+# date:    Thu Mar  1 21:50:35 2012
+# user:    ensab (adrian bowyer,,,,)
+# host:    charles
 
-# To read pcb files, the pcb version (or the cvs source date) must be >= the file version
-FileVersion[20070407]
+# To read pcb files, the pcb version (or the git source date) must be >= the file version
+FileVersion[20100606]
 
-PCB["" 657480 551181]
+PCB["" 984252 905512]
 
-Grid[1000.000000 0 0 0]
+Grid[100.000000 0 0 0]
 Cursor[0 0 0.000000]
 PolyArea[200000000.000000]
 Thermal[0.500000]
@@ -987,7 +987,7 @@ Layer(2 "solder")
 	Line[595387 320860 607196 332669 2469 2000 "clearline"]
 	Line[621764 311803 617433 311803 5512 2000 "clearline"]
 	Line[600112 280701 595387 285426 2469 2000 "clearline"]
-	Line[312905 299008 569205 299008 5118 2000 "clearline"]
+	Line[597520 250778 604298 244000 1984 2000 "clearline"]
 	Line[569205 286803 569205 292905 5118 2000 "clearline"]
 	Line[626433 287356 618424 280701 2469 2000 "clearline"]
 	Line[578787 223992 578787 261992 5512 2000 "clearline"]
@@ -1350,7 +1350,7 @@ Layer(2 "solder")
 	Line[594000 269000 616355 269000 5512 2000 "clearline"]
 	Line[605000 254000 605000 265000 3984 2000 "clearline"]
 	Line[597520 254000 597520 250778 1984 2000 "clearline"]
-	Line[597520 250778 604298 244000 1984 2000 "clearline"]
+	Line[312905 299008 569205 299008 5118 2000 "clearline"]
 )
 Layer(3 "outline")
 (

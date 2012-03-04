@@ -76,7 +76,7 @@ module mount_plate()
 		for(i=[-1,1])
 			translate([i*(2+body_width/2+nut_surround_thickness+screw_head_dia/2),0,-0.5])
 				cylinder(r=screw_thread_dia/2, h=20, $fn=20);
-
+		//echo(-(body_width/2+nut_surround_thickness+screw_head_dia/2 + projection - screw_head_dia/2+2));
 		translate([-(body_width/2+nut_surround_thickness+screw_head_dia/2 + projection - screw_head_dia/2+2),0,-0.5])
 		{
 				cylinder(r=screw_thread_dia/2, h=20, $fn=20);

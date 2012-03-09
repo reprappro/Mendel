@@ -25,8 +25,8 @@ centres = belt_clamp_centres;
 
 //beltguide(holes=true, grid = false, height = 7, nuts=false);  // 1 off
 //beltclamp(holes=true, grid=false, height = 7, nuts=false); // 3 off
-//belttensioner(holes=true, grid = true, height = 10, nuts=false);  // 1 off
-//beltclamp(holes=true, grid = true, height = 4, nuts=false);      // 1 off
+//belttensioner(holes=true, grid = true, height = 12, nuts=false);  // 1 off
+//beltclamp(holes=true, grid = true, height = 5, nuts=false);      // 1 off
 
 
 // Uncomment both of these and comment out the centres = line above

@@ -12,10 +12,10 @@
 
 include <configuration.scad>
 
-// Print four of the objects generated when pcb_mount is true, two of those generated
+// Print three of the objects generated when pcb_mount is true, two of those generated
 // when it is false and switch_add is 0, and one when it is false and switch_add is 11.
 
-pcb_mount=false; // Set false for endstop
+pcb_mount=true; // Set false for endstop
 switch_add =0; // Set 0 for ordinary endstop, 11 for Z with adjuster
 
 /**

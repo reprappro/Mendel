@@ -29,7 +29,7 @@ vfvertex_height=m8_horizontal+4;
 
 // Distance between feet used to calculate diagonal angle
 
-xfeet = 265;
+xfeet = 288;
 yfeet = 320;
 
 diagonal=atan2(xfeet,yfeet);
@@ -55,9 +55,9 @@ translate ([0,0,vfvertex_height/2])difference()
 	}
 
 	dxf_linear_extrude(file = "../dxf/vertex-body-hole-qcad.dxf",height=2*vfvertex_height,center=true);
+	translate(vertex_x_rod_1) cylinder(h=18,r=(m8_diameter/2),center=true); 
+	translate(vertex_x_rod_2) cylinder(h=18,r=(m8_diameter/2),center=true); 
 
-	translate([11.013,59.912]) cylinder(h=18,r=(m8_diameter/2),center=true); 
-	translate([40.274,9.249,0]) cylinder(h=18,r=(m8_diameter/2),center=true); 
 	translate([40,21,0])
 		xteardrop(m8_horizontal,62);
 	translate([13.687,41.010,0]) rotate(a=60,v=[0,0,1])

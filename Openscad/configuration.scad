@@ -85,6 +85,10 @@ y_rod_centres=183;
 belt_width=6;
 belt_clamp_centres=18;
 
+vertex_x_rod_1=[11.013,59.912];
+vertex_x_rod_2=[40.274,9.249,0];
+vertex_x_rod_gap=sqrt((vertex_x_rod_1.x-vertex_x_rod_2.x)*(vertex_x_rod_1.x-vertex_x_rod_2.x) +(vertex_x_rod_1.y-vertex_x_rod_2.y)*(vertex_x_rod_1.y-vertex_x_rod_2.y) );
+
 // Some basic functions, probably should be somewhere else
 module roundcorner(diameter){
 	difference(){

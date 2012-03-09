@@ -2,3 +2,5 @@ These OpenSCAD files have names that tell you how many copies to print.
 
 Ones that end in readme make multiple objects - read the comments at their head
 to find out what to print.
+
+Ones that have neither ending are library files for the others.

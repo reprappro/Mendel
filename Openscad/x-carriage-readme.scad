@@ -285,9 +285,9 @@ module hot_end_holes(tail=true)
 		translate([0,0,-15])
 		union()
 		{
-			cylinder(r=1.7,h=20,center=true,$fn=20);
+			cylinder(r=0.2+ptfe_diameter/2,h=20,center=true,$fn=20);
 			translate([0, -5,0])
-				cube([3,10,20],center=true);
+				cube([ptfe_diameter-0.2,10,20],center=true);
 		}
 		
 		for(x=[-1,1])

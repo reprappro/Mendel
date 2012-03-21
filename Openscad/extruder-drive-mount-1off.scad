@@ -24,8 +24,8 @@ difference()
 	{
 	translate([40.5,0,0])
 		cube([107, 20, 6],center=true);
-	translate([87,0,0])
-		cylinder(h=27,r=6,$fn=30); 
+	translate([87,0,-2])
+		cylinder(h=26,r=6,$fn=30); 
 	}
 	
 	translate([87,0,0])

@@ -19,20 +19,21 @@ include <configuration.scad>
  */ 
 
 module barclamp(){
-outer_diameter = (m8_diameter-0.0)/2+2.4;
+outer_diameter_y = (m8_diameter-0.0)/2+2.4;
+outer_diameter_z =outer_diameter_y+1;
 
 difference(){
 	union(){
 		
-		translate([outer_diameter, outer_diameter, 0])cylinder(h =outer_diameter*2, r = outer_diameter, $fn = 20);
-		translate([outer_diameter, 0, 0])cube([outer_diameter+1.5,outer_diameter*2,outer_diameter*2]);
-		translate([18, 2*outer_diameter, outer_diameter])rotate([90, 0, 0]) rotate([00, 0, 0]) nut(outer_diameter*2,outer_diameter*2,false);
+		translate([outer_diameter_y, outer_diameter_y, 0])cylinder(h =outer_diameter_z*2, r = outer_diameter_y, $fn = 20);
+		translate([outer_diameter_y, 0, 0])cube([outer_diameter_y+1.5,outer_diameter_y*2,outer_diameter_z*2]);
+		translate([18, 2*outer_diameter_y, outer_diameter_z])rotate([90, 0, 0]) rotate([0, 0, 0]) nut(outer_diameter_z*2,outer_diameter_y*2,false);
 	}
 
 
-	translate([18, outer_diameter, 9])cube([18,05,20], center=true);
-	translate([outer_diameter, outer_diameter, -1]) #cylinder(h =20, r = m8_diameter/2-0.4, $fn = 18);
-	translate([17, 17, 7.5]) rotate([90, 0, 0]) #cylinder(h =20, r = m8_diameter/2, $fn = 20);
+	translate([19, outer_diameter_y, 9])cube([19,5,20], center=true);
+	translate([outer_diameter_y, outer_diameter_y, -1]) #cylinder(h =20, r = m8_diameter/2-0.4, $fn = 18);
+	translate([17, 17, outer_diameter_z]) rotate([90, 0, 0]) #cylinder(h =20, r = m8_diameter/2, $fn = 20);
 }
 }
 barclamp();

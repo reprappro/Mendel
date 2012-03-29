@@ -62,7 +62,6 @@ module lid()
 
 module plate()
 {
-
 	difference()
 	{
 		union()
@@ -88,6 +87,17 @@ module plate()
 			translate([x_rod_centres/2+14, -15, 0])
 				mirror([0,1,0])
 					clamp();
+
+			// Endstop tab
+
+			translate([22,-45.5,-10]) 
+			difference()
+			{
+				cube([8,5,5], center=true);
+				translate([-3,4,0]) 
+					rotate([0,0,-60])
+						cube([8,8,8], center=true);
+			}
 			
 		}
 
@@ -115,6 +125,17 @@ module plate()
 				cube([2,20,20],center=true);
 
 		}
+
+		for(x=[-10,10])
+			for(y=[-7,7])
+				translate([x, y, 0])
+					union()
+					{
+						cylinder(r=m3_diameter/2,h=40,center=true,$fn=20);
+						translate([0, 0, -7.5])		
+							cylinder(r=m3_nut_diameter/2,h=5,center=true,$fn=6);	
+					}
+
 
 
 	}

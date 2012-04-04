@@ -18,20 +18,25 @@ include <belt-clamp-readme.scad>
 
 // Print one plate and one lid.
 
-plate();
+//plate();
 
-//translate([0,0,20]) lid();
+translate([0,0,20]) lid();
 
-//rods_and_belt();
 
-//clamp();
+/*
+//Check for mounting centres
 
-//t25_indent();
-
-//three_ends(clearance=true, chop=false);
-
-//hot_end();
-//hot_end_holes();
+translate([26.5,-3.5-30+37/2+2,3+8-4])
+	cylinder(r=1,h=60,$fn=20);
+translate([26.5,-(-3.5-30+37/2+2),3+8-4])
+	cylinder(r=1,h=60,$fn=20);
+translate([-26.5,-3.5-30+37/2+2,3+8-4])
+	cylinder(r=1,h=60,$fn=20);
+translate([-26.5,-(-3.5-30+37/2+2),3+8-4])
+	cylinder(r=1,h=60,$fn=20);
+translate([-67+37/2+2,-4.5-26.5,3+8-4])
+	cylinder(r=1,h=60,$fn=20);
+*/
 
 
 pillar = [26.5, 2 ,-4];
@@ -249,6 +254,7 @@ module three_ends(clearance=false, chop=-1)
 				hot_end(block=clearance,hole=chop,tail=false);
 	}
 }
+
 
 module three_end_holes()
 {

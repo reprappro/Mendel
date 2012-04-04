@@ -21,13 +21,13 @@ $DIMGAP
  40
 0.625
   9
-$INSUNITS
- 70
-4
-  9
 $DIMEXO
  40
 0.625
+  9
+$INSUNITS
+ 70
+4
   9
 $DIMTXT
  40
@@ -37,17 +37,17 @@ $DIMSTYLE
   2
 Standard
   9
-$PLIMMIN
- 10
-0.0
- 20
-0.0
-  9
 $PLIMMAX
  10
 210.0
  20
 297.0
+  9
+$PLIMMIN
+ 10
+0.0
+ 20
+0.0
   9
 $DIMEXE
  40
@@ -2255,7 +2255,7 @@ AcDbDimension
  71
 5
  72
-0
+1
  41
 1.0
  42
@@ -2315,7 +2315,7 @@ AcDbDimension
  71
 5
  72
-0
+1
  41
 1.0
  42
@@ -2375,7 +2375,7 @@ AcDbDimension
  71
 5
  72
-0
+1
  41
 1.0
  42
@@ -7573,6 +7573,126 @@ ByLayer
  31
 0.0
   0
+DIMENSION
+  5
+122
+100
+AcDbEntity
+  8
+dimensions
+ 62
+256
+370
+-1
+  6
+ByLayer
+100
+AcDbDimension
+ 10
+221.5
+ 20
+187.243856427672057
+ 30
+0.0
+ 11
+117.0
+ 21
+189.118856427672057
+ 31
+0.0
+ 70
+0
+ 71
+5
+ 72
+1
+ 41
+1.0
+ 42
+0.0
+  1
+
+  3
+Standard
+100
+AcDbAlignedDimension
+ 13
+12.4999999999999982
+ 23
+176.5
+ 33
+0.0
+ 14
+221.5
+ 24
+176.5
+ 34
+0.0
+ 50
+0.0
+100
+AcDbRotatedDimension
+  0
+DIMENSION
+  5
+123
+100
+AcDbEntity
+  8
+dimensions
+ 62
+256
+370
+-1
+  6
+ByLayer
+100
+AcDbDimension
+ 10
+274.1053390593273207
+ 20
+-32.5000000000000071
+ 30
+0.0
+ 11
+272.2303390593273207
+ 21
+72.0
+ 31
+0.0
+ 70
+0
+ 71
+5
+ 72
+1
+ 41
+1.0
+ 42
+0.0
+  1
+
+  3
+Standard
+100
+AcDbAlignedDimension
+ 13
+221.5
+ 23
+176.5
+ 33
+0.0
+ 14
+221.5000000000000284
+ 24
+-32.5
+ 34
+0.0
+ 50
+90.0
+100
+AcDbRotatedDimension
+  0
 ENDSEC
   0
 SECTION
@@ -7611,7 +7731,7 @@ E
   3
 AcDbVariableDictionary
 350
-122
+124
   0
 DICTIONARY
   5
@@ -8075,7 +8195,7 @@ Layout2
   0
 DICTIONARY
   5
-122
+124
 100
 AcDbDictionary
 281
@@ -8083,15 +8203,15 @@ AcDbDictionary
   3
 DIMASSOC
 350
-124
+126
   3
 HIDETEXT
 350
-123
+125
   0
 DICTIONARYVAR
   5
-123
+125
 100
 DictionaryVariables
 280
@@ -8101,7 +8221,7 @@ DictionaryVariables
   0
 DICTIONARYVAR
   5
-124
+126
 100
 DictionaryVariables
 280

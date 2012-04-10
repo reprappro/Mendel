@@ -5,13 +5,14 @@ Released by Lanthan, august 24, 2011, under the GNU Public licens (GPL).
 // Modified by Adrian to reduce material
 
 // Print one of the objects generated when this is true, and one when it's false.
-motor_side=true;
+motor_side=false;
 
 include <configuration.scad> ;
 
 mount_thickness = 8 ;
 cover_thickness = 7 ;
 cyl_height = 24 ;
+
 
 
 module motor_mount() {
@@ -65,9 +66,12 @@ union() {
 translate([0,0,-1.5]) cylinder(h=50,r=15) ;
 //translate([0,0,-5]) cylinder(h=50,r=8) ;
 translate([-20,-30,-5]) cylinder(h=30,r=15, center=true, $fn=40) ;
-translate([3.81,-21.59,-5]) cylinder(h=50,r=m3_diameter/2) ;
-translate([21.59,3.81,-5]) cylinder(h=50,r=m3_diameter/2) ;
+translate([3.81,-21.59,-5]) cylinder(h=100,r=m3_diameter/2) ;
+translate([21.59,3.81,-5]) cylinder(h=100,r=m3_diameter/2) ;
 translate([-33.81,8.20,-5]) cylinder(h=50,r=m3_diameter/2) ;
+
+translate([-3.81,21.59,-5]) cylinder(h=50,r=m3_diameter) ;
+translate([-21.59,-3.81,-5]) cylinder(h=50,r=m3_diameter) ;
 
 union() {
 translate([-50.25,-20.35,-5]) cylinder(h=30,r=4.50) ;

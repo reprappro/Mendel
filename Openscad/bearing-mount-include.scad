@@ -12,7 +12,7 @@
 
 
 //Test
-//bearing_holder(clamp=false,with_mountplate=true, vertical=false, slope=false,igus=false);
+//bearing_holder(clamp=false,with_mountplate=false, vertical=true, slope=true,igus=true);
 
 
 // LM8UU/rod dimensions
@@ -286,8 +286,8 @@ module bearing_holder(clamp=false,with_mountplate=false, vertical=false, slope=f
 
 			}
 		
-			translate([0, 5+body_length, 25])
-				rotate([45,0,0])
+			translate([0, 5+body_length, 30])
+				rotate([65,0,0]) //Sloping end overhang
 					cube([50,50,50], center=true);	
 		} else
 		{	

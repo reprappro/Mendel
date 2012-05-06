@@ -16,7 +16,7 @@
 
 
 // LM8UU/rod dimensions
-LM8UU_dia = 15.2;
+LM8UU_dia = 15;
 LM8UU_length = 24;
 rod_dia = 8;
 

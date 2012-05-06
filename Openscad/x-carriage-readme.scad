@@ -18,9 +18,9 @@ include <belt-clamp-readme.scad>
 
 // Print one plate and one lid.
 
-//plate();
+plate();
 
-translate([0,0,20]) lid();
+//translate([0,0,20]) lid();
 
 
 /*

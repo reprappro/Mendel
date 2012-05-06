@@ -10,7 +10,7 @@
 
 
 zi=41;              // internal height
-xi=111;            // Internal width
+xi=112;            // Internal width
 yi=51;              // Internal depth
 thick=2.5;        // Wall thickness
 screw_y=26;   // Retaining screw coord
@@ -18,14 +18,11 @@ screw_z=37;   // Retaining screw coord
 screw_d=3.3;  //  Retaining screw diameter
 head_d=6;       //  Retaining screw head diameter
 fixz=34;           // Retaining cone z coord
-catch=9;          // catch prism size
-catcht=3.5;     // catch prism thickness
-catchup=0.5;     // catch prism offset
-catchz=22.25;  // catch z pos
-catcha=20;
-catchb=4;
-catchc=29;
-catchgap=9;
+catchy=10;  	// catch y pos
+catcha=10;
+catchb=10;
+catchc=25;
+catchoff=[catcha/2-6,0,catchc-21+5];
 c8x=23;           // IEC C8 rectangle size X
 c8y=18;           // IEC C8 rectangle size Y
 c8holes=30;   //  IEC C8 mounting hole centres
@@ -40,7 +37,7 @@ basez=14;      // Indentation for bottom sheet
 
 clampxyz=[-xi/2 + wlong/2 + 10, yi/2 - (wy+wthick*2)/2 - 5, -zi/2 + whigh/2 - 0.5];
 screwxyz=[-xi/2, yi/2-screw_y, -zi/2 +screw_z];
-catchxyz=[(xi-catch)/2,-(yi-catcht)/2 + catchup,-(zi-catch)/2+catchz];
+catchxyz=[(xi-catcha)/2,-(yi-catchb)/2 + catchy,-(zi-catchc)/2];
 ps_cover();
 
 
@@ -61,7 +58,7 @@ module ps_cover()
 			}
 			translate(clampxyz)
 				wire_clamp();
-			translate(catchxyz+[-5,0,-11.5])
+			translate(catchxyz)
 				cube([catcha,catchb,catchc],center=true);
 		}
 		translate([xi/2 - c8holes/2 - 10, yi/2 - c8y/2 - 5, -zi/2])
@@ -71,12 +68,13 @@ module ps_cover()
 		translate(screwxyz)
 			rotate([0,90,0])
 				cylinder(r=screw_d/2,h=10,center=true,$fn=20);
-		translate(catchxyz+[5,0,0])
+		translate(catchxyz+catchoff)
 		{
-			rotate([0,90,0])
-				cylinder(r=1,h=50,center=true,$fn=20);
-			translate([-5,0,-0.25])
-				cube([catchgap,catchb+5,20],center=true);
+			rotate([90,0,0])
+				cylinder(r=1.5,h=100,center=true,$fn=20);
+			translate([0,50,0])
+				rotate([90,0,0])
+					cylinder(r=3,h=60,center=true,$fn=20);
 		}
 	}
 }

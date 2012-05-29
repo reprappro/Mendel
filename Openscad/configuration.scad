@@ -85,6 +85,7 @@ y_rod_centres=183;
 belt_width=6;
 belt_clamp_centres=18;
 ptfe_diameter=4;
+z_slot_width=3.5;
 
 vertex_x_rod_1=[11.013,59.912];
 vertex_x_rod_2=[40.274,9.249,0];

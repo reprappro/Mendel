@@ -41,10 +41,10 @@ translate(v=[30-1,20,0]) cube(size = [4.5,40,16], center = true);
 
 
 // Nema 17
-rotate ([0,0,45]) translate([20,0,0]) cube(size = [9,3.2,25], center = true);
-rotate ([0,0,-45]) translate([20,0,0]) cube(size = [9,3.2,25], center = true);
-rotate ([0,0,135]) translate([20,0,0]) cube(size = [9,3.2,25], center = true);
-rotate ([0,0,-135]) translate([20,0,0]) cube(size = [9,3.2,25], center = true);
+rotate ([0,0,45]) translate([20,0,0]) cube(size = [9,z_slot_width,25], center = true);
+rotate ([0,0,-45]) translate([20,0,0]) cube(size = [9,z_slot_width,25], center = true);
+rotate ([0,0,135]) translate([20,0,0]) cube(size = [9,z_slot_width,25], center = true);
+rotate ([0,0,-135]) translate([20,0,0]) cube(size = [9,z_slot_width,25], center = true);
 
 translate(v=[0,0,-10])cylinder(h = 20, r=13);
 

@@ -19,8 +19,8 @@
 
 // Make a rectangle of pulleys_x by pulleys_y pulleys, so you can print a lot
 // Set both to 1 for just 1 pulley
-pulleys_x = 3;
-pulleys_y = 2;
+pulleys_x = 2;
+pulleys_y = 1;
 
 // tuneable constants
 

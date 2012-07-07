@@ -26,9 +26,10 @@ pulleys_y = 1;
 
 teeth = 14;			// Number of teeth, standard Mendel T5 belt = 8, gives Outside Diameter of 11.88mm
 profile = 5;		// 1=MXL 2=40DP 3=XL 4=H 5=T2.5 6=T5 7=T10 8=AT5 9=HTD_3mm 10=HTD_5mm 11=HTD_8mm 12=GT2_2mm 13=GT2_3mm 14=GT2_5mm
+top_flange=false;  // Set false to get an open-ended pulley
 
 motor_shaft = 5;	// NEMA17 motor shaft exact diameter = 5
-shaft_flat = 2;      // Radial distance of D flat on shaft from axis.  Set to...
+shaft_flat = 2;      // Radial distance of D flat on the shaft from its axis.  Set to...
 //shaft_flat = 1 + motor_shaft/2;   // ...this to get a round shaft.
 m3_dia = 3.2;		// 3mm hole diameter
 m3_nut_hex = 1;		// 1 for hex, 0 for square nut
@@ -134,7 +135,9 @@ module pulley_i( belt_type , pulley_OD , tooth_depth , tooth_width )
 		{
 			//base
 	
-			if ( pulley_b_ht < 0.02 ) { echo ("CAN'T DRAW PULLEY BASE, HEIGHT LESS THAN 2!!!"); } else {
+			if ( pulley_b_ht < 0.02 ) { echo ("CAN'T DRAW PULLEY BASE, HEIGHT LESS THAN 2!!!"); } 
+			else 
+			{
 				translate([0,0,pulley_b_ht*3]) rotate_extrude($fn=pulley_b_dia*2)
 				{
 						square([pulley_b_dia/2-1,pulley_b_ht]);
@@ -142,6 +145,21 @@ module pulley_i( belt_type , pulley_OD , tooth_depth , tooth_width )
 						translate([pulley_b_dia/2-1,pulley_b_ht-1]) circle(1);
 				}
 				cylinder(r=pulley_b_dia/2,h=pulley_b_ht*2,$fn=pulley_b_dia*2);
+			}
+
+			if(top_flange)
+			{
+				translate([0,0,pulley_t_ht])
+				{
+					rotate([180,0,0])
+					cylinder(r1=pulley_b_dia/2,r2=pulley_OD/2-tooth_depth_scale,
+						h=pulley_b_dia/2-pulley_OD/2+tooth_depth_scale,
+							$fn=pulley_b_dia*2, center=true);
+					translate([0,0,(pulley_b_dia/2-pulley_OD/2+tooth_depth_scale)*0.75])
+						cylinder(r=pulley_b_dia/2,
+						h=(pulley_b_dia/2-pulley_OD/2+tooth_depth_scale)/2,
+							$fn=pulley_b_dia*2, center=true);
+				}	
 			}
 	
 		difference()

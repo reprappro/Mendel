@@ -310,8 +310,8 @@ if(motor)
 	}
 
 // Cable support holes
-	translate([-40, -18, 23]) rotate([0,90,0])cylinder(h = 20, r=1.5, $fn=15, center=true);
-	translate([-36, -13, 20]) rotate([90,0,0])cylinder(h = 20, r=1.5, $fn=15, center=true);
+	//translate([-40, -18, 23]) rotate([0,90,0])cylinder(h = 20, r=1.5, $fn=15, center=true);
+	//translate([-36, -13, 20]) rotate([90,0,0])cylinder(h = 20, r=1.5, $fn=15, center=true);
 	}
 }else
 {

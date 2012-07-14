@@ -12,7 +12,7 @@
 
 
 //Test
-//bearing_holder(clamp=false,with_mountplate=false, vertical=true, slope=true,igus=true);
+//bearing_holder(clamp=false,with_mountplate=true, vertical=false, slope=false,igus=false);
 
 
 // LM8UU/rod dimensions
@@ -80,7 +80,7 @@ module mount_plate()
 		translate([-(body_width/2+nut_surround_thickness+screw_head_dia/2 + projection - screw_head_dia/2+2),0,-0.5])
 		{
 				cylinder(r=screw_thread_dia/2, h=20, $fn=20);
-				translate([0,0,plate_thickness])
+				translate([0,0,1])
 					cylinder(r=nut_dia/2, h=5, $fn=6, center=true);
 		}
 	}

@@ -19,7 +19,7 @@
 
 // Make a rectangle of pulleys_x by pulleys_y pulleys, so you can print a lot
 // Set both to 1 for just 1 pulley
-pulleys_x = 2;
+pulleys_x = 1;
 pulleys_y = 1;
 
 // tuneable constants
@@ -28,8 +28,8 @@ teeth = 14;			// Number of teeth, standard Mendel T5 belt = 8, gives Outside Dia
 profile = 5;		// 1=MXL 2=40DP 3=XL 4=H 5=T2.5 6=T5 7=T10 8=AT5 9=HTD_3mm 10=HTD_5mm 11=HTD_8mm 12=GT2_2mm 13=GT2_3mm 14=GT2_5mm
 top_flange=false;  // Set false to get an open-ended pulley
 
-motor_shaft = 5;	// NEMA17 motor shaft exact diameter = 5
-shaft_flat = 2;      // Radial distance of D flat on the shaft from its axis.  Set to...
+motor_shaft = 5.25;	// NEMA17 motor shaft exact diameter = 5
+shaft_flat = 2.1;      // Radial distance of D flat on the shaft from its axis.  Set to...
 //shaft_flat = 1 + motor_shaft/2;   // ...this to get a round shaft.
 m3_dia = 3.2;		// 3mm hole diameter
 m3_nut_hex = 1;		// 1 for hex, 0 for square nut

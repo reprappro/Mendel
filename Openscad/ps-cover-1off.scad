@@ -35,7 +35,7 @@ basez=14;      // Indentation for bottom sheet
 wallx=54;       // Wall between mains and low-voltage side
 walldent1 = 50; //Wall indentations to accommodate screw connector etc
 walldent2=60;
-walldent3=23;
+walldent3=35;
 
 clampxyz=[-xi/2 + wlong/2 + 10, yi/2 - (wy+wthick*2)/2 - 5, -zi/2 + whigh/2 - 0.5];
 screwxyz=[-xi/2, yi/2-screw_y, -zi/2 +screw_z];

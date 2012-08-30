@@ -51,7 +51,7 @@ echo( str("Torus diameter (mm): ", torus_d));
 //half_arm(t = bearing_thick/2, top = true);
 //translate([0,0,20])
 //drive_plate();
-body();
+body(top=true);
 //print_all();
 
 module print_all()
@@ -183,7 +183,7 @@ module exit()
 		}
 }
 
-module attacments(r=(bearing_od)/2, h=solarbotics_h + 0.25*bearing_thick + flat_tube,inc=0)
+module attachments(r=(bearing_od)/2, h=solarbotics_h + 0.25*bearing_thick + flat_tube,inc=0)
 {
 		rotate([0,0,50])
 			translate([inc+ (bearing_circle+bearing_od)/2+tube_wall*2+0.75*bearing_thick,0,0])
@@ -204,7 +204,7 @@ module attacments(r=(bearing_od)/2, h=solarbotics_h + 0.25*bearing_thick + flat_
 
 module body(top=false)
 {
-	
+
 	difference()
 	{
 		union()
@@ -213,11 +213,11 @@ module body(top=false)
 					h = solarbotics_h + 0.25*bearing_thick + flat_tube,
 					$fn=100);
 	
-			attacments();
+			attachments();
 		}
 
 		translate([0,0,-1])
-		attacments(r=bearing_id/2,h=200,inc=2);
+		attachments(r=bearing_id/2,h=200,inc=2);
 		
 
 		translate([0,0,solarbotics_h + 0.25*bearing_thick])
@@ -252,7 +252,7 @@ module body(top=false)
 
 		}
 
-		solarbotics_holes(false);
+		solarbotics_holes(flats=false);
 
 		rotate([0,0,-30])
 		exit();
@@ -284,9 +284,18 @@ module solarbotics_holes(flats=true)
 					cylinder(r=solarbotics_d/2+2, h=solarbotics_h, $fn=20, center=true);
 		
 		translate([20, 17.7/2,0])
+		{
 				cylinder(r=1.6, h=60, $fn=20, center=true);
-		translate([20, -17.7/2, 0])
+				translate([0,0,2.4])
+					cylinder(r1=1.6, r2 = 3.1,h=1.5, $fn=20, center=true);
+		}
+		translate([20, -17.7/2,0])
+		{
 				cylinder(r=1.6, h=60, $fn=20, center=true);
+				translate([0,0,2.4])
+					cylinder(r1=1.6, r2 = 3.1,h=1.5, $fn=20, center=true);
+		}
+
 
 		translate([11, 0, 0])
 				cylinder(r=2, h=8, $fn=20, center=true);

@@ -5,40 +5,44 @@ Print one small gear, one large gear.
 */
 
 include <parametric_involute_gear_v5.0.scad>
+shaft_flat = 2;      // Radial distance of D flat on the shaft from its axis.  Set to...
+motor_shaft = 5.2;
 
 
-//small_gear();
-large_gear();
+translate([0,0,14]) small_gear();
+//large_gear();
 
 module small_gear(){
 rotate([0,180,20])
-translate ([0,0,0]) difference(){
+translate ([0,0,0]) union(){
 	gear (
 	number_of_teeth=11,
 	circular_pitch=200, diametral_pitch=false,
 	pressure_angle=28,
 	clearance = 0.2,
-	gear_thickness=7,
-	rim_thickness=7,
+	gear_thickness=14,
+	rim_thickness=14,
 	rim_width=5.3,
-	hub_thickness=14,
+	hub_thickness=1.0,
 	hub_diameter=18,
-	bore_diameter=5.2,
+	bore_diameter=motor_shaft,
 	circles=0,
 	backlash=0,
 	twist=0,
 	involute_facets=0);
 	//translate([0,0,11]) rotate([90,0,0]) cylinder(h=16,r=2.7/2,$fn=30);
-	translate([0,10,10.6]) rotate([-90,0,180]) union()
-	{
+	//translate([0,10,10.6]) rotate([-90,0,180]) union()
+	//{
 		//entrance
 		//translate([0,-3,15]) cube([5.8,7,3],center=true);
-		translate([0,-3,15]) cube([2*(5.8/sqrt(3)),6,3],center=true);
+		//translate([0,-3,15]) cube([2*(5.8/sqrt(3)),6,3],center=true);
 		//nut
-		translate([0,0,13.5]) rotate([0,0,0])cylinder(r=5.8/sqrt(3),h=3,$fn=6);
+		//translate([0,0,13.5]) rotate([0,0,0])cylinder(r=5.8/sqrt(3),h=3,$fn=6);
 		//grub hole
-		translate([0,0,9]) cylinder(r=1.9,h=10);
-	}
+		//translate([0,0,9]) cylinder(r=1.9,h=10);
+	//}
+	#translate([shaft_flat + 0.75,0,7])
+		cube([1.5,5,14],center=true);
 }}
 
 module large_gear(){

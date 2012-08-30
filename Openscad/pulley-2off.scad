@@ -212,7 +212,7 @@ module pulley_i( belt_type , pulley_OD , tooth_depth , tooth_width )
 		{
 			cylinder(r=motor_shaft/2,h=pulley_b_ht + pulley_t_ht + retainer_ht + 2,
 				$fn=motor_shaft*4);
-			translate([motor_shaft/2 + shaft_flat ,0,-2])
+			#translate([motor_shaft/2 + shaft_flat ,0,-2])
 				cube([motor_shaft,3*motor_shaft,3*(pulley_b_ht + pulley_t_ht + retainer_ht + 2)], 
 					center=true);
 		}

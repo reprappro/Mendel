@@ -12,9 +12,9 @@ motor_side=true;
 
 include <configuration.scad> ;
 
-mount_thickness = 8 ;
-cover_thickness = 7 ;
-cyl_height = 24 ;
+mount_thickness = 4 ;
+cover_thickness = 3 ;
+cyl_height = 14 ;
 
 
 
@@ -24,7 +24,7 @@ mirror([0,0,1])
 difference() {
 union() {
 	linear_extrude(file="../dxf/ybracproj_extr.dxf", height = mount_thickness, origin =[0,0]);
-	translate([-33.81,8.20,0]) cylinder(h=cyl_height, r=6) ;
+	//translate([-33.81,8.20,0]) cylinder(h=cyl_height, r=6) ;
 	translate([21.59,3.81,0]) cylinder(h=cyl_height, r=8) ;
 	translate([3.81,-21.59,0]) cylinder(h=cyl_height, r=8) ;
 	translate([-50.25,-20.35,0]) cylinder(h=cyl_height, r=9.51) ;
@@ -51,6 +51,7 @@ translate([-26.06,33.67,10]) rotate(a=[0,0,-30]) cube(size = [12,9,30], center =
 }
 
 translate([-20,-30,-5]) cylinder(h=30,r=15, center=true, $fn=40) ;
+translate([-48,13,-5]) cylinder(h=30,r=22, center=true, $fn=40) ;
 }
 
 } ; // end motor_mount
@@ -87,6 +88,7 @@ translate([-26.06,33.67,10]) rotate(a=[0,0,-30]) cube(size = [12,9,30], center =
 }
 
 
+translate([-48,13,-5]) cylinder(h=30,r=22, center=true, $fn=40) ;
 
 
 }

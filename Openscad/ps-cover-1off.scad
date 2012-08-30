@@ -32,8 +32,10 @@ wthick=4;        // Wire clamp thickness
 whigh=20;      // Wire clamp height
 wlong=20;      // Wire clamp length
 basez=14;      // Indentation for bottom sheet
-
-
+wallx=54;       // Wall between mains and low-voltage side
+walldent1 = 50; //Wall indentations to accommodate screw connector etc
+walldent2=60;
+walldent3=35;
 
 clampxyz=[-xi/2 + wlong/2 + 10, yi/2 - (wy+wthick*2)/2 - 5, -zi/2 + whigh/2 - 0.5];
 screwxyz=[-xi/2, yi/2-screw_y, -zi/2 +screw_z];
@@ -60,6 +62,15 @@ module ps_cover()
 				wire_clamp();
 			translate(catchxyz)
 				cube([catcha,catchb,catchc],center=true);
+			translate([(xi+2*thick)/2 - wallx,0,0])
+				difference()
+				{
+					cube([thick,yi+thick,zi+thick],center=true);
+					translate([0, -(yi+thick)/2, (zi+thick)/2])
+						cube([5*thick,walldent1,walldent2],center=true);
+					translate([0, (yi+thick)/2, (zi+thick)/2])
+						cube([5*thick,walldent2,walldent3],center=true);
+				}
 		}
 		translate([xi/2 - c8holes/2 - 10, yi/2 - c8y/2 - 5, -zi/2])
 			c8_holes();

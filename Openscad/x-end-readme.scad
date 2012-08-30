@@ -35,7 +35,7 @@ scaffold=false;
 
 module clamp()
 {
-	translate(v = [1, 0, 9])
+	translate(v = [1, 0, 9.2])
 	difference()
 	{
 		translate(v = [1, 0, -3.5])cube(size = [10,29,7], center = true);
@@ -129,8 +129,8 @@ translate(v = [x_rod_centres/2 + 10.1, -19.9, -25]) rotate(a=[0,0,-180]) roundco
 
 //holes for X axis
 translate(v = [-x_rod_centres/2, -18, -16.7]) rotate(a=[90,0,0]) {
-	translate(v = [0, 0, 22]) cylinder(h = 42, r=4.5, $fn=20, center=true);
-	translate(v = [0, 2.60, 22]) rotate(a=[0,0,0]) cylinder(h = 42, r=3.65, $fn=6, center=true);
+	translate(v = [0, 0, 22]) cylinder(h = 42, r=4.2, $fn=20, center=true);
+	translate(v = [0, 2.60, 22]) rotate(a=[0,0,0]) cylinder(h = 42, r=3.3, $fn=6, center=true);
 }
 translate(v = [x_rod_centres/2, -18, -16.7]) rotate(a=[90,0,0]) {
 	translate(v = [0, 0, 22]) cylinder(h = 42, r=4.5, $fn=20, center=true);
@@ -390,9 +390,7 @@ module xend()
 
 
 
-
 xend();
-
 
 
 

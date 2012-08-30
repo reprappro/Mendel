@@ -46,7 +46,7 @@ screw_elevation = LM8UU_dia + body_wall_thickness + (screw_thread_dia/2) +screw_
 projection=15; // Side projection for bed mount
 plate_thickness=10;// thickness of mount plate
 
-igus_od=9.65;
+igus_od=9.5;
 igus_flat=13;
 igus_length=8;
 igus_thick=1;

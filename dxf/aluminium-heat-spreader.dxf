@@ -1,5 +1,5 @@
 999
-dxflib 2.0.4.8
+dxflib 2.2.0.0
   0
 SECTION
   2
@@ -13,43 +13,13 @@ $HANDSEED
   5
 FFFF
   9
-$DIMADEC
- 70
-2
-  9
-$GRIDUNIT
- 10
-0.0
- 20
-0.0
-  9
-$DIMASZ
- 40
-2.5
-  9
-$DIMGAP
- 40
-0.625
-  9
-$LUNITS
- 70
-2
-  9
-$AUPREC
- 70
-2
-  9
 $SPLINESEGS
  70
 8
   9
-$INSUNITS
- 70
-4
-  9
-$DIMEXO
+$DIMEXE
  40
-0.625
+1.25
   9
 $DIMLUNIT
  70
@@ -59,17 +29,47 @@ $GRIDMODE
  70
 1
   9
+$INSUNITS
+ 70
+4
+  9
+$DIMADEC
+ 70
+2
+  9
+$DIMASZ
+ 40
+2.5
+  9
+$DIMGAP
+ 40
+0.625
+  9
 $DIMTXT
  40
 6.0
+  9
+$GRIDUNIT
+ 10
+0.0
+ 20
+0.0
+  9
+$DIMEXO
+ 40
+0.625
   9
 $LUPREC
  70
 4
   9
-$DIMSTYLE
-  2
-Standard
+$DIMAUNIT
+ 70
+0
+  9
+$AUPREC
+ 70
+2
   9
 $PLIMMIN
  10
@@ -77,19 +77,19 @@ $PLIMMIN
  20
 0.0
   9
+$LUNITS
+ 70
+2
+  9
 $PLIMMAX
  10
 210.0
  20
 297.0
   9
-$DIMEXE
- 40
-1.25
-  9
-$DIMAUNIT
- 70
-0
+$DIMSTYLE
+  2
+Standard
   9
 $AUNITS
  70
@@ -1675,7 +1675,7 @@ AcDbDimension
  71
 5
  72
-0
+1
  41
 1.0
  42
@@ -1735,7 +1735,7 @@ AcDbDimension
  71
 5
  72
-0
+1
  41
 1.0
  42
@@ -1795,7 +1795,7 @@ AcDbDimension
  71
 5
  72
-0
+1
  41
 1.0
  42
@@ -1855,7 +1855,7 @@ AcDbDimension
  71
 5
  72
-0
+1
  41
 1.0
  42
@@ -1913,13 +1913,13 @@ ByLayer
  72
 2
   1
-Material:\~3mm\~Al\~sheet
+Material: 3mm Al sheet
   7
-normallatin1
+iso
  50
 0.0
  73
-0
+1
  44
 1.0
   0
@@ -1936,6 +1936,7 @@ dimensions
 -1
   6
 ByLayer
+<<<<<<< HEAD
 100
 AcDbDimension
  10
@@ -2319,11 +2320,62 @@ ByLayer
  21
 37.0
  31
+=======
+100
+AcDbDimension
+ 10
+19.9999999999999751
+ 20
+-66.2710907778305796
+ 30
 0.0
+ 11
+13.9999999999999787
+ 21
+-62.6460907778305796
+ 31
+0.0
+ 70
+0
+ 71
+5
+ 72
+1
+ 41
+1.0
+ 42
+0.0
+  1
+
+  3
+Standard
+100
+AcDbAlignedDimension
+ 13
+7.9999999999999716
+ 23
+-37.0
+ 33
+0.0
+ 14
+19.9999999999999858
+ 24
+65.0
+ 34
+0.0
+ 50
+>>>>>>> b28dc38b69b0b98921e8e95ee45e3f8831aa3272
+0.0
+100
+AcDbRotatedDimension
   0
 LINE
   5
+<<<<<<< HEAD
 62
+=======
+57
+>>>>>>> b28dc38b69b0b98921e8e95ee45e3f8831aa3272
 100
 AcDbEntity
 100
@@ -2337,6 +2389,7 @@ AcDbLine
   6
 ByLayer
  10
+<<<<<<< HEAD
 7.9999999999999813
  20
 29.0
@@ -2348,10 +2401,59 @@ ByLayer
 29.0
  31
 0.0
+=======
+221.5000000000000284
+ 20
+-74.223621671170207
+ 30
+0.0
+ 11
+114.75
+ 21
+-70.598621671170207
+ 31
+0.0
+ 70
+0
+ 71
+5
+ 72
+1
+ 41
+1.0
+ 42
+0.0
+  1
+
+  3
+Standard
+100
+AcDbAlignedDimension
+ 13
+7.9999999999999716
+ 23
+-37.0
+ 33
+0.0
+ 14
+221.5000000000000284
+ 24
+-32.5
+ 34
+0.0
+ 50
+0.0
+100
+AcDbRotatedDimension
+>>>>>>> b28dc38b69b0b98921e8e95ee45e3f8831aa3272
   0
 ARC
   5
+<<<<<<< HEAD
 63
+=======
+58
+>>>>>>> b28dc38b69b0b98921e8e95ee45e3f8831aa3272
 100
 AcDbEntity
   8
@@ -2365,6 +2467,7 @@ ByLayer
 100
 AcDbCircle
  10
+<<<<<<< HEAD
 13.9999999999999805
  20
 37.0
@@ -2378,12 +2481,63 @@ AcDbArc
 270.0
  51
 0.0
+=======
+226.0
+ 20
+-83.6909203537174164
+ 30
+0.0
+ 11
+116.9999999999999716
+ 21
+-80.0659203537174164
+ 31
+0.0
+ 70
+0
+ 71
+5
+ 72
+1
+ 41
+1.0
+ 42
+0.0
+  1
+
+  3
+Standard
+100
+AcDbAlignedDimension
+ 13
+7.9999999999999716
+ 23
+-37.0
+ 33
+0.0
+ 14
+226.0
+ 24
+-37.0
+ 34
+0.0
+ 50
+0.0
+100
+AcDbRotatedDimension
+>>>>>>> b28dc38b69b0b98921e8e95ee45e3f8831aa3272
   0
-DIMENSION
+MTEXT
   5
+<<<<<<< HEAD
 64
+=======
+59
+>>>>>>> b28dc38b69b0b98921e8e95ee45e3f8831aa3272
 100
 AcDbEntity
+100
+AcDbMText
   8
 dimensions
  62
@@ -2392,9 +2546,8 @@ dimensions
 -1
   6
 ByLayer
-100
-AcDbDimension
  10
+<<<<<<< HEAD
 -6.3603209651113266
  20
 29.0
@@ -2408,9 +2561,21 @@ AcDbDimension
 0.0
  70
 0
+=======
+-173.4409118642650753
+ 20
+95.4303707200759845
+ 30
+0.0
+ 40
+6.0
+ 41
+100.0
+>>>>>>> b28dc38b69b0b98921e8e95ee45e3f8831aa3272
  71
-5
+1
  72
+<<<<<<< HEAD
 1
  41
 1.0
@@ -2438,23 +2603,41 @@ AcDbAlignedDimension
 90.0
 100
 AcDbRotatedDimension
+=======
+2
+  1
+Corner holes: drill 3mm &\Pcountersink so heads are\Pbelow flush. Note: notch is\Pasymmetrical - countersink\Pthis side.
+  7
+iso
+ 50
+0.0
+ 73
+1
+ 44
+1.0
+>>>>>>> b28dc38b69b0b98921e8e95ee45e3f8831aa3272
   0
-DIMENSION
+CIRCLE
   5
+<<<<<<< HEAD
 65
+=======
+5A
+>>>>>>> b28dc38b69b0b98921e8e95ee45e3f8831aa3272
 100
 AcDbEntity
+100
+AcDbCircle
   8
-dimensions
+heat-spreader
  62
 256
 370
 -1
   6
 ByLayer
-100
-AcDbDimension
  10
+<<<<<<< HEAD
 -18.2859227746950594
  20
 115.0
@@ -2480,14 +2663,38 @@ AcDbDimension
 
   3
 Standard
-100
-AcDbAlignedDimension
- 13
-7.9999999999999716
- 23
--37.0
- 33
+=======
+12.4999999999999982
+ 20
+176.5
+ 30
 0.0
+ 40
+3.0
+  0
+CIRCLE
+  5
+5B
+>>>>>>> b28dc38b69b0b98921e8e95ee45e3f8831aa3272
+100
+AcDbEntity
+100
+AcDbCircle
+  8
+heat-spreader
+ 62
+256
+370
+-1
+  6
+ByLayer
+ 10
+221.5
+ 20
+176.5
+ 30
+0.0
+<<<<<<< HEAD
  14
 7.999999999999992
  24
@@ -2498,23 +2705,80 @@ AcDbAlignedDimension
 90.0
 100
 AcDbRotatedDimension
+=======
+ 40
+3.0
   0
-DIMENSION
+CIRCLE
   5
-66
+5C
 100
 AcDbEntity
+100
+AcDbCircle
   8
-dimensions
+heat-spreader
  62
 256
 370
 -1
   6
 ByLayer
-100
-AcDbDimension
  10
+221.5000000000000284
+ 20
+-32.5
+ 30
+0.0
+ 40
+3.0
+>>>>>>> b28dc38b69b0b98921e8e95ee45e3f8831aa3272
+  0
+CIRCLE
+  5
+<<<<<<< HEAD
+66
+=======
+5D
+>>>>>>> b28dc38b69b0b98921e8e95ee45e3f8831aa3272
+100
+AcDbEntity
+100
+AcDbCircle
+  8
+heat-spreader
+ 62
+256
+370
+-1
+  6
+ByLayer
+ 10
+12.4999999999999662
+ 20
+-32.5
+ 30
+0.0
+ 40
+3.0
+  0
+LINE
+  5
+5E
+100
+AcDbEntity
+100
+AcDbLine
+  8
+centres
+ 62
+256
+370
+-1
+  6
+ByLayer
+ 10
+<<<<<<< HEAD
 21.9999999999999716
  20
 -65.193289892391121
@@ -2553,12 +2817,311 @@ AcDbAlignedDimension
  24
 37.0
  34
+=======
+8.0
+ 20
+181.0
+ 30
+0.0
+ 11
+18.0
+ 21
+181.0
+ 31
+0.0
+  0
+LINE
+  5
+5F
+100
+AcDbEntity
+100
+AcDbLine
+  8
+centres
+ 62
+256
+370
+-1
+  6
+ByLayer
+ 10
+8.0
+ 20
+115.0
+ 30
+>>>>>>> b28dc38b69b0b98921e8e95ee45e3f8831aa3272
+0.0
+ 11
+8.0
+ 21
+181.0
+ 31
+0.0
+  0
+<<<<<<< HEAD
+=======
+LINE
+  5
+60
+100
+AcDbEntity
+100
+AcDbLine
+  8
+centres
+ 62
+256
+370
+-1
+  6
+ByLayer
+ 10
+7.9999999999999716
+ 20
+-37.0
+ 30
+0.0
+ 11
+17.9999999999999716
+ 21
+-37.0
+ 31
+0.0
+  0
+LINE
+  5
+61
+100
+AcDbEntity
+100
+AcDbLine
+  8
+centres
+ 62
+256
+370
+-1
+  6
+ByLayer
+ 10
+7.9999999999999716
+ 20
+29.0
+ 30
+0.0
+ 11
+7.9999999999999716
+ 21
+-37.0
+ 31
+0.0
+  0
+LINE
+  5
+62
+100
+AcDbEntity
+100
+AcDbLine
+  8
+centres
+ 62
+256
+370
+-1
+  6
+ByLayer
+ 10
+19.9999999999999929
+ 20
+115.0
+ 30
+0.0
+ 11
+8.0
+ 21
+115.0
+ 31
+0.0
+  0
+LINE
+  5
+63
+100
+AcDbEntity
+100
+AcDbLine
+  8
+centres
+ 62
+256
+370
+-1
+  6
+ByLayer
+ 10
+19.9999999999999822
+ 20
+29.0
+ 30
+0.0
+ 11
+7.9999999999999716
+ 21
+29.0
+ 31
+0.0
+  0
+LINE
+  5
+64
+100
+AcDbEntity
+100
+AcDbLine
+  8
+heat-spreader
+ 62
+256
+370
+13
+  6
+ByLayer
+ 10
+19.9999999999999929
+ 20
+115.0
+ 30
+0.0
+ 11
+19.9999999999999822
+ 21
+29.0
+ 31
+0.0
+  0
+DIMENSION
+  5
+65
+100
+AcDbEntity
+  8
+dimensions
+ 62
+256
+370
+-1
+  6
+ByLayer
+100
+AcDbDimension
+ 10
+-6.0590711568302167
+ 20
+65.0
+ 30
+0.0
+ 11
+-9.6840711568302211
+ 21
+-3.9999999999999996
+ 31
+0.0
+ 70
+0
+ 71
+5
+ 72
+1
+ 41
+1.0
+ 42
+0.0
+  1
+
+  3
+Standard
+100
+AcDbAlignedDimension
+ 13
+7.9999999999999716
+ 23
+-37.0
+ 33
+0.0
+ 14
+7.9999999999999716
+ 24
+29.0
+ 34
 0.0
  50
-0.0
+90.0
 100
 AcDbRotatedDimension
   0
+DIMENSION
+  5
+66
+100
+AcDbEntity
+  8
+dimensions
+ 62
+256
+370
+-1
+  6
+ByLayer
+100
+AcDbDimension
+ 10
+-17.798521523188775
+ 20
+93.0
+ 30
+0.0
+ 11
+-21.4235215231887821
+ 21
+39.0
+ 31
+0.0
+ 70
+0
+ 71
+5
+ 72
+1
+ 41
+1.0
+ 42
+0.0
+  1
+
+  3
+Standard
+100
+AcDbAlignedDimension
+ 13
+7.9999999999999716
+ 23
+-37.0
+ 33
+0.0
+ 14
+8.0
+ 24
+115.0
+ 34
+0.0
+ 50
+90.0
+100
+AcDbRotatedDimension
+  0
+>>>>>>> b28dc38b69b0b98921e8e95ee45e3f8831aa3272
 ENDSEC
   0
 SECTION

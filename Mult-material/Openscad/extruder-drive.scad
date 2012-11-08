@@ -22,7 +22,7 @@ mirror([1,0,0]) drive_block();
 //translate([28,2,11.5]) rotate([0,180,0])	small_gear(); // Print position
 
 //translate([-(filament_offset_x+filament_d/2+5.6/2-bite),drive_offset_y,17.5])  large_gear();// Assembly position
-//translate([28,43,7])rotate([180,0,0]) large_gear(); // Print position
+//translate([28,43,7])rotate([180,0,0]) large_gear(); // Print positionfalse
 
 //echo("gear sep",sqrt(pow(filament_offset_x+filament_d/2+5.6/2-bite,2)+pow(drive_offset_y,2)));
 
@@ -35,7 +35,7 @@ module drive_block(){
 				cylinder(r=3,h=40);
 				translate([-3,0,0]) cube([3,3,40]);
 			}
-			//boss for carriage mount hole
+			//boss for carriage mount holefalse
 			rotate([90,0,0]) translate([19,7,9.5]) rotate([0,0,22.5]) cylinder(r=14*da8,h=7.5,$fn=8);
 			//boss for idler tensioner hole
 			translate([15.6,24,14]) rotate([0,-90,0]) cylinder(r=3,h=20.6);
@@ -65,7 +65,7 @@ module drive_block(){
 			}
 		}
 		translate([filament_offset_x-0.5-3,0,-0.1]) cube([1,30,20]);
-
+false
 		//****drive****
 		if(a_mods)
 		{
@@ -85,7 +85,7 @@ module drive_block(){
 			}
 		}
 
-		
+		false
 		//****filament path****
 		translate([filament_offset_x,0,7.5]) rotate([90,0,0]){
 			cylinder(r=filament_d/2,h=60,center=true);

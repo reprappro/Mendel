@@ -117,8 +117,9 @@ module plate()
 
 		for(i=[-1,1])
 		translate([i*7.5, 0, 3])
-			rotate([90,0,])
+			rotate([90,0,0])
 				cylinder(r=m3_diameter/2,h=20,center=true,$fn=20);
+		
 
 		translate([-x_rod_centres/2,27,0])
 		difference()

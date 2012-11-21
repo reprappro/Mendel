@@ -19,7 +19,7 @@ include <configuration.scad>
 
 // Print 4 with basefoot true plus 2 with basefoot false
 
-basefoot=true;
+basefoot=false;
 drill_diag=true;
 
 
@@ -54,7 +54,7 @@ translate ([0,0,vfvertex_height/2])difference()
 		}
 	}
 
-	dxf_linear_extrude(file = "../dxf/vertex-body-hole-qcad.dxf",height=2*vfvertex_height,center=true);
+	#dxf_linear_extrude(file = "../dxf/vertex-body-hole-qcad.dxf",height=1.1*vfvertex_height,center=true);
 	translate(vertex_x_rod_1) cylinder(h=18,r=(m8_diameter/2),center=true); 
 	translate(vertex_x_rod_2) cylinder(h=18,r=(m8_diameter/2),center=true); 
 

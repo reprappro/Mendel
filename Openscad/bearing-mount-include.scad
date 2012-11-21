@@ -46,16 +46,10 @@ screw_elevation = LM8UU_dia + body_wall_thickness + (screw_thread_dia/2) +screw_
 projection=15; // Side projection for bed mount
 plate_thickness=10;// thickness of mount plate
 
-igus_od=9.5;
+igus_od=9.5+0.1;
 igus_flat=13;
 igus_length=8;
 igus_thick=1;
-
-
-
-
-
-
 
 // nophead's polyhole module for better lm8uu-fit
 module polyhole(d,h) {
@@ -278,7 +272,7 @@ module bearing_holder(clamp=false,with_mountplate=false, vertical=false, slope=f
 			translate([0,50,LM8UU_dia/2+2])
 			{
 				rotate([90,0,0])
-					translate([0,0,-(LM8UU_length+1)/2]) polyhole(igus_od+0.3,LM8UU_length+100);
+					translate([0,0,-(LM8UU_length+1)/2]) polyhole(igus_od,LM8UU_length+100);
 				translate([0,0,sqrt(0.5)*((igus_flat/2)+body_wall_thickness)])
 					rotate([0,45,0])
 						cube([(igus_flat/2)+body_wall_thickness, LM8UU_length+100 ,

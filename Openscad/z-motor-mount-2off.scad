@@ -27,7 +27,7 @@ difference(){
 		translate(v=[2.5-3.25/2,0,-4]) cube(size = [55-3.25,74.5,8], center = true);
 
 		translate(v=[30+9/2,29.25/2,0]) cube(size = [9,29.25,16], center = true);
-		translate(v=[30+9/2,29.25/2+4.2/2,0]) cube(size = [9,29.25-4.2,16], center = true);
+		
 		translate(v=[30+9/2,29.25,-4]) cube(size = [9,16,8], center = true);
 		translate(v=[30,0,0]) cylinder(h = 16, r=9, center=true);
 		translate(v=[30+4.5,29.25,0]) rotate(a=[0,90,0]) cylinder(h = 9, r=8, $fn=30,center=true);
@@ -37,7 +37,7 @@ difference(){
 	}
 
 translate(v=[-2.1,0,3.1]) cube(size = [46,43,10], center = true);
-translate(v=[30-1,20,0]) cube(size = [4.5,40,16], center = true);
+translate(v=[30-1,20,0]) cube(size = [4.5,40,18], center = true);
 
 
 // Nema 17

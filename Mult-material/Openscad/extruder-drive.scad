@@ -111,7 +111,7 @@ module drive_block(){
 				}
 			}
 		} else
-			translate([-50,-10,-5])
+			translate([-50,-11,-5])
 				cube([100,50,50]);
 
 		//****filament path****
@@ -126,7 +126,7 @@ module drive_block(){
 					cylinder(r=8.3/2,h=6);
 					cylinder(r=8.3/sqrt(3), h=6, $fn=6);
 				} else
-					cylinder(r=6.2/2,h=60,center=true);
+					cylinder(r=5.3/2,h=60,center=true);
 			}
 
 			

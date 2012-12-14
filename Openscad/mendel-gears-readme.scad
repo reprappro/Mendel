@@ -12,7 +12,14 @@ fn=64;
 pulley_b_ht = 0.25;
 pulley_b_dia = 14.5;
 
-translate([0,0,0]) small_gear();
+large=true;
+
+if(large){
+	large_gear();
+}else{
+	small_gear();
+}
+//translate([0,0,0]) small_gear();
 //large_gear();
 
 module small_gear(){

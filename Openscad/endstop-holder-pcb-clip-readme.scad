@@ -16,7 +16,7 @@ include <configuration.scad>
 // when it is false and switch_add is 0, and one when it is false and switch_add is 11.
 
 pcb_mount=true; // Set false for endstop
-extrude_mount=true; // Set true for mini-extruder 
+extrude_mount=false; // Set true for mini-extruder 
 switch_add =0; // Set 0 for ordinary endstop, 11 for Z with adjuster
 
 /**

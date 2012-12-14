@@ -17,7 +17,19 @@ include <functions.scad>
  */ 
 
 // Modified by Adrian for RepRapPro Mendel
+guide=false;
+clamp=false;
+tensioner=false;
 
+if(guide) {
+	beltguide(holes,grid,height,nuts);
+}
+if(clamp) {
+	beltclamp(holes,grid,height,nuts);
+}
+if(tensioner) {
+	belttensioner(holes,grid,height,nuts);
+}
 
 centres = belt_clamp_centres;
 

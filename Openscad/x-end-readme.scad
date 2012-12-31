@@ -323,7 +323,7 @@ if(motor)
 		{
 			union()
 			{
-				translate(v = [x_rod_centres/2-12, -24, 15]) cube(size = [x_rod_centres/2 + 1,2,25], center = true); // New web
+				#translate(v = [x_rod_centres/2-12, -24, 15]) cube(size = [x_rod_centres/2 + 2,2,25], center = true); // New web
 				translate(v = [x_rod_centres/2-4, 14, 15]) 
 				{
 					difference()

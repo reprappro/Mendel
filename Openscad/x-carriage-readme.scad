@@ -17,7 +17,7 @@ include <bearing-mount-include.scad>
 include <belt-clamp-readme.scad>
 
 // Print one plate and one lid.
-pplate=false;
+pplate=true;
 if(pplate){
 	plate();
 }else{
@@ -122,14 +122,14 @@ module plate()
 			rotate([90,0,])
 				cylinder(r=m3_diameter/2,h=20,center=true,$fn=20);
 
-		translate([-x_rod_centres/2,27,0])
+		#translate([-x_rod_centres/2,27,0])
 		difference()
 		{
 			cube([40,9,40],center=true);
 			translate([7,0,-15])
-				cube([2,20,20],center=true);
+				cube([2.5,20,20],center=true);
 			translate([-7,0,-15])
-				cube([2,20,20],center=true);
+				cube([2.5,20,20],center=true);
 
 		}
 

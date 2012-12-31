@@ -16,12 +16,15 @@ include <functions.scad>
 include <bearing-mount-include.scad>
 include <belt-clamp-readme.scad>
 
+print_logo=true;
+
 // Print one plate and one lid.
 
 plate();
 
 //translate([0,0,20]) lid();
 
+//logo();
 
 /*
 //Check for mounting centres
@@ -142,7 +145,7 @@ module plate()
 							cylinder(r=m3_nut_diameter/2,h=5,center=true,$fn=6);	
 					}
 
-
+		logo();
 
 	}
 
@@ -376,4 +379,13 @@ module rods_and_belt()
 			rotate([90,0,0])
 				cylinder(r=bushing_rodsize/2,h=200,center=true);
 	}
+}
+
+module logo()
+{
+	color("green")
+	translate([-1,-41,-11.55])
+	rotate([180,0,90])
+	scale([2, 2, 1])
+	linear_extrude(height = 1) import("../dxf/reprappro-logo.dxf");
 }

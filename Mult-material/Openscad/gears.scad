@@ -10,10 +10,10 @@ rotate([180,0,0]) translate([0,0,-7])
 //translate ([19.2588,0,12])
 translate([0,50,0])
 	large_gear();
-translate([37,0,0])
-rotate([0,0,0]) translate([0,0,-5]) rotate([0,0,15])
+//translate([37,0,0])
+//rotate([0,0,0]) translate([0,0,-5]) rotate([0,0,15])
 	//color([1,1,1,0.1])
-		small_gear();
+//		small_gear();
 
 module small_gear(){
 translate ([0,0,0]) difference(){
@@ -72,9 +72,11 @@ difference(){
 	difference(){
 		cylinder(r=22,h=20);
 		cylinder(r=5.5,h=20);
-		translate([0,0,5.5]) {
-			cube([4,60,3],center=true);
-			cube([60,4,3],center=true);
+		for(i=[0:5])
+		rotate([0,0,i*360/5])
+		translate([0,15,5.5]) {
+			cube([4,30,3],center=true);
+			//cube([60,4,3],center=true);
 		}
 	}
 }}

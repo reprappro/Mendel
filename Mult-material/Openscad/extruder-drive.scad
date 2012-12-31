@@ -13,8 +13,8 @@ filament_offset_x=(5/2+filament_d/2+2.5);
 echo(filament_offset_x);
 bite=-0.5;
 
-//da8=sqrt(2+sqrt(2))/4;
-//echo(da8);
+da8=sqrt(2+sqrt(2))/4;
+echo(da8);
 
 //NEMA14();
 mirror([1,0,0]) drive_block();

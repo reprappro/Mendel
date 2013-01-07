@@ -21,6 +21,10 @@ $DIMEXE
  40
 0.75
   9
+$PSVPSCALE
+ 40
+7.4520499999999998
+  9
 $DIMLUNIT
  70
 2
@@ -63,6 +67,14 @@ $LUPREC
  70
 4
   9
+$PINSBASE
+ 10
+32.9932250000000096
+ 20
+-4.1932325851366699
+ 30
+0.0
+  9
 $DIMAUNIT
  70
 0
@@ -83,9 +95,9 @@ $LUNITS
   9
 $PLIMMAX
  10
-210.0
- 20
 297.0
+ 20
+210.0
   9
 $DIMSTYLE
   2
@@ -2405,7 +2417,7 @@ AcDbDimension
  71
 5
  72
-0
+1
  41
 1.0
  42
@@ -2661,7 +2673,7 @@ AcDbDimension
  71
 5
  72
-0
+1
  41
 1.0
  42
@@ -2721,7 +2733,7 @@ AcDbDimension
  71
 5
  72
-0
+1
  41
 1.0
  42
@@ -2833,51 +2845,9 @@ Standard
  20
 13.75
   0
-LEADER
-  5
-72
-  8
-dimensions
- 62
-256
-370
--1
-  6
-CONTINUOUS
-100
-AcDbEntity
-100
-AcDbLeader
-  3
-Standard
- 71
-1
- 72
-0
- 73
-3
- 74
-0
- 75
-0
- 40
-1.0
- 41
-10.0
- 76
-2
- 10
--1.25
- 20
-17.75
- 10
--1.5
- 20
-20.25
-  0
 MTEXT
   5
-73
+72
 100
 AcDbEntity
 100
@@ -2911,13 +2881,13 @@ iso
  50
 0.0
  73
-0
+1
  44
 1.0
   0
 MTEXT
   5
-74
+73
 100
 AcDbEntity
 100
@@ -2951,17 +2921,17 @@ iso
  50
 0.0
  73
-0
+1
  44
 1.0
   0
-MTEXT
+CIRCLE
   5
-75
+74
 100
 AcDbEntity
 100
-AcDbMText
+AcDbCircle
   8
 dimensions
  62
@@ -2971,28 +2941,36 @@ dimensions
   6
 CONTINUOUS
  10
--2.0
+30.0
  20
-21.0
+17.5
  30
 0.0
  40
-0.5
- 41
-100.0
- 71
-1
- 72
-2
-  1
-0.5 or 0.3 mm \U+00f8 (see order)
-  7
-iso
- 50
+1.5
+  0
+CIRCLE
+  5
+75
+100
+AcDbEntity
+100
+AcDbCircle
+  8
+dimensions
+ 62
+256
+370
+-1
+  6
+CONTINUOUS
+ 10
+30.0
+ 20
+17.5
+ 30
 0.0
- 73
-0
- 44
+ 40
 1.0
   0
 CIRCLE
@@ -3017,267 +2995,11 @@ CONTINUOUS
  30
 0.0
  40
-1.5
-  0
-CIRCLE
-  5
-77
-100
-AcDbEntity
-100
-AcDbCircle
-  8
-dimensions
- 62
-256
-370
--1
-  6
-CONTINUOUS
- 10
-30.0
- 20
-17.5
- 30
-0.0
- 40
-1.0
-  0
-CIRCLE
-  5
-78
-100
-AcDbEntity
-100
-AcDbCircle
-  8
-dimensions
- 62
-256
-370
--1
-  6
-CONTINUOUS
- 10
-30.0
- 20
-17.5
- 30
-0.0
- 40
 0.25
-  0
-LEADER
-  5
-79
-  8
-dimensions
- 62
-256
-370
--1
-  6
-DASHEDX2
-100
-AcDbEntity
-100
-AcDbLeader
-  3
-Standard
- 71
-1
- 72
-0
- 73
-3
- 74
-0
- 75
-0
- 40
-1.0
- 41
-10.0
- 76
-2
- 10
-26.5
- 20
-17.5
- 10
-30.0
- 20
-17.5
-  0
-LEADER
-  5
-7A
-  8
-dimensions
- 62
-256
-370
--1
-  6
-DASHEDX2
-100
-AcDbEntity
-100
-AcDbLeader
-  3
-Standard
- 71
-1
- 72
-0
- 73
-3
- 74
-0
- 75
-0
- 40
-1.0
- 41
-10.0
- 76
-3
- 10
-28.5
- 20
-14.0
- 10
-30.0
- 20
-14.0
- 10
-30.0
- 20
-17.5
-  0
-MTEXT
-  5
-7B
-100
-AcDbEntity
-100
-AcDbMText
-  8
-dimensions
- 62
-256
-370
--1
-  6
-DASHED2
- 10
-26.0
- 20
-17.75
- 30
-0.0
- 40
-0.5
- 41
-100.0
- 71
-1
- 72
-2
-  1
-A
-  7
-iso
- 50
-0.0
- 73
-0
- 44
-1.0
-  0
-MTEXT
-  5
-7C
-100
-AcDbEntity
-100
-AcDbMText
-  8
-dimensions
- 62
-256
-370
--1
-  6
-DASHED2
- 10
-28.0
- 20
-14.25
- 30
-0.0
- 40
-0.5
- 41
-100.0
- 71
-1
- 72
-2
-  1
-A
-  7
-iso
- 50
-0.0
- 73
-0
- 44
-1.0
-  0
-MTEXT
-  5
-7D
-100
-AcDbEntity
-100
-AcDbMText
-  8
-dimensions
- 62
-256
-370
--1
-  6
-DASHED2
- 10
-7.0
- 20
-7.75
- 30
-0.0
- 40
-0.5
- 41
-100.0
- 71
-1
- 72
-2
-  1
-section AA
-  7
-iso
- 50
-0.0
- 73
-0
- 44
-1.0
   0
 ARC
   5
-7E
+77
 100
 AcDbEntity
   8
@@ -3305,49 +3027,9 @@ AcDbArc
  51
 139.3987053549955135
   0
-MTEXT
-  5
-7F
-100
-AcDbEntity
-100
-AcDbMText
-  8
-dimensions
- 62
-256
-370
--1
-  6
-DASHED2
- 10
-21.25
- 20
-12.75
- 30
-0.0
- 40
-0.5
- 41
-100.0
- 71
-1
- 72
-2
-  1
-RepRapPro Ltd\P\POne-piece Nozzle\P\PMaterial: Stainless M5 threaded bar
-  7
-iso
- 50
-0.0
- 73
-0
- 44
-1.0
-  0
 LINE
   5
-80
+78
 100
 AcDbEntity
 100
@@ -3375,7 +3057,7 @@ CONTINUOUS
   0
 LINE
   5
-81
+79
 100
 AcDbEntity
 100
@@ -3403,7 +3085,7 @@ CONTINUOUS
   0
 LINE
   5
-82
+7A
 100
 AcDbEntity
 100
@@ -3431,7 +3113,7 @@ CONTINUOUS
   0
 LINE
   5
-83
+7B
 100
 AcDbEntity
 100
@@ -3459,7 +3141,7 @@ CONTINUOUS
   0
 LINE
   5
-84
+7C
 100
 AcDbEntity
 100
@@ -3487,7 +3169,7 @@ CONTINUOUS
   0
 MTEXT
   5
-85
+7D
 100
 AcDbEntity
 100
@@ -3521,13 +3203,13 @@ iso
  50
 0.0
  73
-0
+1
  44
 1.0
   0
 LEADER
   5
-86
+7E
   8
 dimensions
  62
@@ -3569,7 +3251,7 @@ Standard
   0
 LEADER
   5
-87
+7F
   8
 dimensions
  62
@@ -3611,7 +3293,7 @@ Standard
   0
 MTEXT
   5
-88
+80
 100
 AcDbEntity
 100
@@ -3637,17 +3319,347 @@ ByLayer
  71
 1
  72
-0
+2
   1
 cone angle and small flat\Pat tip not critical
   7
-normallatin1
+iso
+ 50
+0.0
+ 73
+0
+ 44
+1.0
+  0
+MTEXT
+  5
+81
+100
+AcDbEntity
+100
+AcDbMText
+  8
+dimensions
+ 62
+256
+370
+-1
+  6
+CONTINUOUS
+ 10
+21.25
+ 20
+12.75
+ 30
+0.0
+ 40
+0.5
+ 41
+100.0
+ 71
+1
+ 72
+2
+  1
+RepRapPro Ltd\P\POne-piece Nozzle\P\PMaterial: Stainless M5 threaded bar
+  7
+iso
  50
 0.0
  73
 1
  44
 1.0
+  0
+LEADER
+  5
+82
+  8
+dimensions
+ 62
+256
+370
+-1
+  6
+CONTINUOUS
+100
+AcDbEntity
+100
+AcDbLeader
+  3
+Standard
+ 71
+1
+ 72
+0
+ 73
+3
+ 74
+0
+ 75
+0
+ 40
+1.0
+ 41
+10.0
+ 76
+2
+ 10
+26.5
+ 20
+17.5
+ 10
+30.0
+ 20
+17.5
+  0
+LEADER
+  5
+83
+  8
+dimensions
+ 62
+256
+370
+-1
+  6
+CONTINUOUS
+100
+AcDbEntity
+100
+AcDbLeader
+  3
+Standard
+ 71
+1
+ 72
+0
+ 73
+3
+ 74
+0
+ 75
+0
+ 40
+1.0
+ 41
+10.0
+ 76
+3
+ 10
+28.5
+ 20
+14.0
+ 10
+30.0
+ 20
+14.0
+ 10
+30.0
+ 20
+17.5
+  0
+MTEXT
+  5
+84
+100
+AcDbEntity
+100
+AcDbMText
+  8
+dimensions
+ 62
+256
+370
+-1
+  6
+CONTINUOUS
+ 10
+26.0
+ 20
+17.75
+ 30
+0.0
+ 40
+0.5
+ 41
+100.0
+ 71
+1
+ 72
+2
+  1
+A
+  7
+iso
+ 50
+0.0
+ 73
+1
+ 44
+1.0
+  0
+MTEXT
+  5
+85
+100
+AcDbEntity
+100
+AcDbMText
+  8
+dimensions
+ 62
+256
+370
+-1
+  6
+CONTINUOUS
+ 10
+28.0
+ 20
+14.25
+ 30
+0.0
+ 40
+0.5
+ 41
+100.0
+ 71
+1
+ 72
+2
+  1
+A
+  7
+iso
+ 50
+0.0
+ 73
+1
+ 44
+1.0
+  0
+MTEXT
+  5
+86
+100
+AcDbEntity
+100
+AcDbMText
+  8
+dimensions
+ 62
+256
+370
+-1
+  6
+CONTINUOUS
+ 10
+7.0
+ 20
+7.75
+ 30
+0.0
+ 40
+0.5
+ 41
+100.0
+ 71
+1
+ 72
+2
+  1
+section AA
+  7
+iso
+ 50
+0.0
+ 73
+1
+ 44
+1.0
+  0
+MTEXT
+  5
+87
+100
+AcDbEntity
+100
+AcDbMText
+  8
+dimensions
+ 62
+256
+370
+-1
+  6
+CONTINUOUS
+ 10
+-2.0
+ 20
+22.0
+ 30
+0.0
+ 40
+0.5
+ 41
+100.0
+ 71
+1
+ 72
+2
+  1
+0.5 or 0.3 mm \U+00f8 (see order)
+  7
+iso
+ 50
+0.0
+ 73
+1
+ 44
+1.0
+  0
+LEADER
+  5
+88
+  8
+dimensions
+ 62
+256
+370
+-1
+  6
+ByLayer
+100
+AcDbEntity
+100
+AcDbLeader
+  3
+Standard
+ 71
+1
+ 72
+0
+ 73
+3
+ 74
+0
+ 75
+0
+ 40
+1.0
+ 41
+10.0
+ 76
+2
+ 10
+-1.25
+ 20
+17.75
+ 10
+-1.75
+ 20
+21.25
   0
 ENDSEC
   0

@@ -78,5 +78,5 @@ translate ([34.667,0,0]) difference(){
 	backlash=0,
 	twist=0,
 	involute_facets=0);
-	translate([0,0,9.8]) cylinder(h=6, r=10.3/sqrt(3),$fn=6,center=true);
+	translate([0,0,9.8]) cylinder(h=6, r=9.85/sqrt(3),$fn=6,center=true);
 }}

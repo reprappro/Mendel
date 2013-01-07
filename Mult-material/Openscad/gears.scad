@@ -9,14 +9,14 @@ $fn=128;
 shaft_flat = 2;      // Radial distance of D flat on the shaft from its axis.  Set to...
 motor_shaft = 5.2;
 
-rotate([180,0,0]) translate([0,0,-7])
+//rotate([180,0,0]) translate([0,0,-7])
 //translate ([19.2588,0,0])
 //translate([0,50,0])
-	large_gear();
+//	large_gear();
 //translate([10,10,0])
 //rotate([0,0,0]) translate([0,0,-3]) rotate([0,0,0])
 	//color([1,1,1,0.3])
-//		small_gear();
+		small_gear();
 
 module small_gear(){
 translate ([0,0,0]) difference(){
@@ -86,16 +86,11 @@ difference(){
 	difference(){
 		cylinder(r=22.5,h=20,center=true);
 		translate([0,0,1.5]) cylinder(r=5.5,h=8.5);
-		translate([0,0,5.5]) {
-			cube([8,60,3],center=true);
-			cube([60,8,3],center=true);
+		for(i=[0:5])
+		rotate([0,0,i*360/5])
+		translate([0,15,5.5]) {
+			cube([6,30,3],center=true);
 		}
-        difference(){
-            translate([0,0,1.5+4]) cube([16,16,3],center=true);
-            for(j=[0,90,180,270]){
-                rotate([0,0,j]) translate([8,8,0]) cylinder(r=4,h=8);
-            }
-        }
 	}
 }
 	translate([0,0,5]) cylinder(r=4,h=0.25);

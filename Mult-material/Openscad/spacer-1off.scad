@@ -1,4 +1,5 @@
 thickness=2;
+hole_pitch=31;
 
 module NEMA17_spacer(){
 	//body
@@ -9,7 +10,7 @@ module NEMA17_spacer(){
 				translate([21*sqrt(2)+2.5-2.5/sqrt(2),0,thickness/2]) {
 					cube([5,10,thickness+.2],center=true);
 				}
-				translate([sqrt(2)*32/2,0,0]) cylinder(r=3.2/2,h=thickness*4,center=true,$fn=12);
+				translate([sqrt(2)*hole_pitch/2,0,0]) cylinder(r=3.2/2,h=thickness*4,center=true,$fn=12);
 			}
 			
 		}

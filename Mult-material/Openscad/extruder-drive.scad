@@ -42,7 +42,10 @@ module drive_block(){
 		//****idler****
 		translate([filament_offset_x-filament_d/2-5,drive_offset_y,5]){
 			cylinder(r=5.5,h=5);
-			rotate([0,0,22.5]) cylinder(r=3.3*da8,h=40,center=true,$fn=8);
+			rotate([0,0,22.5]) difference() {
+				cylinder(r=3.3*da8,h=40,center=true,$fn=8);
+				translate([0,0,5]) cylinder(r=3.5*da8,h=0.3);
+			}
             translate([-9,0,2.5]) cube([24,11,5],center=true);
 			translate([-15,2,2.4]) difference(){
 				cube([20,18,15],center=true);

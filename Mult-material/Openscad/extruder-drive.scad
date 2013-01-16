@@ -9,24 +9,29 @@ echo(filament_offset_x);
 drive_offset_y=17;
 bite=-0.5;
 motor_hole_pitch=31;
+frame_clamp = true;  // Flattens end where Mendel frame clamp lands - AB
 
 //da8=sqrt(2+sqrt(2))/4;
 echo(da8);
 
 //NEMA14();
-mirror([1,0,0])
- drive_block();
+
+mirror([1,0,0]) drive_block();
 //translate([0,0,14]) rotate([0,0,0])
 //translate([28,2,14]) rotate([0,180,0])
 //	small_gear();
 //translate([-(filament_offset_x+filament_d/2+5.6/2-bite),drive_offset_y,15.5])
 //	large_gear();
+
 //echo("gear sep",sqrt(pow(filament_offset_x+filament_d/2+5.6/2-bite,2)+pow(drive_offset_y,2)));
 
 module drive_block(){
 	difference(){
 		union(){
-			translate([0,5-1,7]) cube([motor_hole_pitch+8,motor_hole_pitch+16,14],center=true);
+			if(!frame_clamp)
+				translate([0,5-1,7]) cube([motor_hole_pitch+8,motor_hole_pitch+16,14],center=true);
+			else
+				translate([1,5-1,7]) cube([motor_hole_pitch+10,motor_hole_pitch+16,14],center=true);
 			translate([17,24,3]) rotate([0,-90,0]){
 				cylinder(r=3,h=40);
 				translate([-3,0,0]) cube([3,3,40]);
@@ -49,6 +54,7 @@ module drive_block(){
             translate([-9,0,2.5]) cube([24,11,5],center=true);
 			translate([-15,2,2.4]) difference(){
 				cube([20,18,15],center=true);
+				//translate([3,-5,-5])cube([16,12,5.2],center=true); // Added by AB
 				translate([10-3,3-9,0]) difference(){
                     translate([3,-3,0]) cube([6,6,15],center=true);
 					cylinder(r=3,h=15,center=true);
@@ -93,18 +99,25 @@ module drive_block(){
 		for(i=[1,-1]){
 			translate([i*motor_hole_pitch/2,-motor_hole_pitch/2,-0.1]) rotate([0,0,22.5]) cylinder(r=3.3*da8,h=20,$fn=8);
 		}
+		 // Added by AB
+		//translate([-motor_hole_pitch/2,motor_hole_pitch/2,-0.1]) rotate([0,0,22.5]) cylinder(r=3.3*da8,h=20,$fn=8);
 		//****idler tensioner****
 		for(i=[0,11.5]){
 			translate([18.6+2.5,24,2.5+i]) rotate([0,-90,0]){
-				rotate([0,0,30]) cylinder(r=5.8/sqrt(3),h=6,$fn=6);
-				rotate([0,0,22.5]) cylinder(r=3.3*da8,h=40,$fn=8);
+				if(!frame_clamp || i > 4)
+					rotate([0,0,30]) cylinder(r=5.8/sqrt(3),h=12, center=true,$fn=6);
+				rotate([0,0,22.5]) cylinder(r=3.3*da8,h=80, center=true,$fn=8);
 			}
 		}
-		translate([17.1+1,25,2.5]) rotate([0,-90,0]) cube([35,5.8,6],center=true);
+		if(!frame_clamp)
+			translate([17.1+1,25,2.5]) cube([6,5.8,35],center=true);
+		else
+			translate([17.1+2,25,27]) cube([8,5.8,35],center=true);
 		//****carriage mount holes****
 		for(i=[1,-1]){
-			rotate([90,0,0]) translate([filament_offset_x+i*16+1.5,7.5,8]){
-                translate([0,0,-8]) rotate([0,0,22.5]) cylinder(r=3.3*da8,h=24,$fn=8);
+			rotate([90,0,0]) translate([filament_offset_x+i*16+1.5,7.5,9])
+			{
+                		translate([0,0,-8]) rotate([0,0,22.5]) cylinder(r=3.3*da8,h=24,$fn=8);
 				rotate([0,0,30]) cylinder(r=5.8/sqrt(3),h=3,$fn=6);
 				translate([-5.8/2,0,0]) cube([5.8,10,3]);
 			}

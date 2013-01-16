@@ -16,13 +16,13 @@ motor_shaft = 5.2;
 //translate([10,10,0])
 //rotate([0,0,0]) translate([0,0,-3]) rotate([0,0,0])
 	//color([1,1,1,0.3])
-		small_gear();
+//		small_gear();
 
 module small_gear(){
 translate ([0,0,0]) difference(){
 	gear (
 	number_of_teeth=13,
-	circular_pitch=150, diametral_pitch=false,
+	circular_pitch=133, diametral_pitch=false, // Changed from 150 - AB
 	pressure_angle=28,
 	clearance = 0.2,
 	gear_thickness=5,
@@ -62,12 +62,12 @@ translate ([0,0,0]) difference(){
 module large_gear(){
 difference(){
 	union(){
-		translate([0,0,0.01]) cylinder(r=27,h=7);
+		translate([0,0,0.01]) cylinder(r=28,h=7); // Changed from 27 - AB
 		//translate([0,0,-2.999]) cylinder(r2=5.5,r1=3,h=3);
 	}
 	translate([0,0,0]) gear (
 	number_of_teeth=59,
-	circular_pitch=150, diametral_pitch=false,
+	circular_pitch=155, diametral_pitch=false,  // Changed from 150 - AB
 	pressure_angle=28,
 	clearance = 0.2,
 	gear_thickness=0.01,
@@ -84,7 +84,7 @@ difference(){
 	translate([0,0,5]) cylinder(h=6, r=5.8/sqrt(3),$fn=6);
 	cylinder(r=3.3/2,h=40,center=true);
 	difference(){
-		cylinder(r=22.5,h=20,center=true);
+		cylinder(r=22.5,h=20,center=true); 
 		translate([0,0,1.5]) cylinder(r=5.5,h=8.5);
 		for(i=[0:5])
 		rotate([0,0,i*360/5])

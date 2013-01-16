@@ -1,5 +1,7 @@
 thickness=2;
 hole_pitch=31;
+rad = 6;
+notch = true;
 
 module NEMA17_spacer(){
 	//body
@@ -14,7 +16,21 @@ module NEMA17_spacer(){
 			}
 			
 		}
-		cylinder(r=22.4/2,h=thickness*2.2,center=true);
+		cylinder(r=23/2,h=thickness*2.2,center=true); // Changed from 22.4 - AB
+
+	// Corner notch added by AB
+		if(notch)
+		{
+			translate([-hole_pitch/2+3,hole_pitch/2-1,0]) 
+			{
+					cylinder(r=rad, h=thickness*4,center=true,$fn=20);
+					translate([-rad,3,0])
+						cube([2*rad,2*rad+6,thickness*4],center=true);
+					rotate([0,0,-45])
+					translate([-3,rad+3,0])
+						cube([2*rad+6,2*rad+6,thickness*4],center=true);
+			}
+		}
 	}
 }
 

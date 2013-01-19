@@ -47,14 +47,24 @@ module vertex(with_foot=basefoot){
 translate ([0,0,vfvertex_height/2])difference() 
 {
 	union () {
+	if (with_foot) {
+		dxf_linear_extrude(file = "../dxf/vertex-body-fixed-foot.dxf",height=vfvertex_height,center=true);		}
+else {
 		dxf_linear_extrude(file = "../dxf/vertex-body-fixed-qcad.dxf",height=vfvertex_height,center=true);
+}
+		
 		//import_stl("vertex-body-fixed.stl");
 		if (with_foot) {
 			translate([40,-15,0]) vertex_foot();
 		}
 	}
 
-	#dxf_linear_extrude(file = "../dxf/vertex-body-hole-qcad.dxf",height=1.1*vfvertex_height,center=true);
+	if (with_foot) {
+		dxf_linear_extrude(file = "../dxf/vertex-body-hole-foot.dxf",height=2*vfvertex_height,center=true);
+}
+	else{
+		dxf_linear_extrude(file = "../dxf/vertex-body-hole-qcad.dxf",height=2*vfvertex_height,center=true);
+}
 	translate(vertex_x_rod_1) cylinder(h=18,r=(m8_diameter/2),center=true); 
 	translate(vertex_x_rod_2) cylinder(h=18,r=(m8_diameter/2),center=true); 
 

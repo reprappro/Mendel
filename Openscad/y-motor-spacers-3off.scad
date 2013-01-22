@@ -7,9 +7,9 @@ include <configuration.scad> ;
 
 cyl_height = 10 ;
 
-module open_standoff(){
+module closed_standoff(){
 	difference(){
-		cylinder(h=cyl_height, r=8) ;
+		cylinder(h=cyl_height, r=5) ;
 		cylinder(h=50,r=m3_diameter/2,$fn=20) ;
 		}
 }
@@ -17,7 +17,7 @@ module open_standoff(){
 
 
 
-module closed_standoff() {
+module open_standoff() {
 				rotate([0,180,0])
 				mirror([0,0,1])
 				difference()	 {

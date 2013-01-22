@@ -13,10 +13,12 @@
 
 //Test
 //bearing_holder(clamp=false,with_mountplate=true, vertical=false, slope=false,igus=false);
+//bearing_holder(clamp=false,with_mountplate=true, vertical=false, slope=false, igus=false);
+
 
 
 // LM8UU/rod dimensions
-LM8UU_dia = 15;
+LM8UU_dia = 14.8;
 LM8UU_length = 24;
 rod_dia = 8;
 
@@ -33,7 +35,8 @@ screw_head_dia = screw_head_dia_iso + clearance_dia;
 nut_wrench_size = nut_wrench_size_iso + clearance_dia;
 nut_dia_perimeter = (nut_wrench_size/cos(30));
 nut_dia = nut_dia_perimeter;
-nut_surround_thickness = 2;
+m5_nut = 9.4;
+nut_surround_thickness = 3;
 
 // main body dimensions
 body_wall_thickness = 2;
@@ -73,9 +76,9 @@ module mount_plate()
 		//echo(-(body_width/2+nut_surround_thickness+screw_head_dia/2 + projection - screw_head_dia/2+2));
 		translate([-(body_width/2+nut_surround_thickness+screw_head_dia/2 + projection - screw_head_dia/2+2),0,-0.5])
 		{
-				cylinder(r=screw_thread_dia/2, h=20, $fn=20);
+				cylinder(r=5.2/2, h=20, $fn=20);
 				translate([0,0,1])
-					cylinder(r=nut_dia/2, h=5, $fn=6, center=true);
+					cylinder(r=m5_nut/2, h=4, $fn=6, center=true);
 		}
 	}
 }

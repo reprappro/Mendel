@@ -17,33 +17,12 @@ include <functions.scad>
  */ 
 
 // Modified by Adrian for RepRapPro Mendel
-guide=false;
-clamp=false;
-tensioner=false;
-
-if(guide) {
-	beltguide(holes,grid,height,nuts);
-}
-if(clamp) {
-	beltclamp(holes,grid,height,nuts);
-}
-if(tensioner) {
-	belttensioner(holes,grid,height,nuts);
-}
 
 centres = belt_clamp_centres;
 
 // Print the number off of each in the comments
 
-//beltguide(holes=true, grid = false, height = 7, nuts=false);  // 1 off
-//beltclamp(holes=true, grid=false, height = 7, nuts=false); // 3 off
-//belttensioner(holes=true, grid = true, height = 12, nuts=false);  // 1 off
-//beltclamp(holes=true, grid = true, height = 5, nuts=false);      // 1 off
-
-
-// Uncomment both of these and comment out the centres = line above
-//centres = belt_clamp_centres - 4;
-//beltclamp(holes=true, grid=true, height = 5, nuts=true); // 2 off
+beltguide(holes=true, grid = false, height = 7, nuts=false);  // 1 off
 
 
 module beltholes(nuts=false)

@@ -16,7 +16,7 @@ include <configuration.scad>
 // when it is false and switch_add is 0, and one when it is false and switch_add is 11.
 
 pcb_mount=true; // Set false for endstop
-extrude_mount=false; // Set true for mini-extruder 
+extrude_mount=true; // Set true for mini-extruder 
 switch_add =0; // Set 0 for ordinary endstop, 11 for Z with adjuster
 
 /**
@@ -38,7 +38,7 @@ difference(){
 	{
 		if(extrude_mount)
 		{
-			translate([-outer_diameter/2-5, outer_diameter/2+2, -outer_diameter/2+4]) 
+			translate([-outer_diameter/2-5, outer_diameter/2+2, -outer_diameter/2+3.75]) 
 				cube([20,outer_diameter*2,4]);
 		}
 		translate([outer_diameter, outer_diameter, 0]) cylinder(h =10, r = outer_diameter, $fn = 20);
@@ -53,13 +53,13 @@ difference(){
 	translate([-(56+screw_hole_spacing+ switch_screw_hole_radius+switch_add), -10, -10]) 
 		cube([50, 50, 50]);
 
-	translate([9, outer_diameter-opening_size/2, 0]) cube([18,opening_size,20]);
-	translate([outer_diameter, outer_diameter, 0]) cylinder(h =20, r = m8_diameter/2, $fn = 18);
+	translate([9, outer_diameter-opening_size/2, -0.1]) cube([18,opening_size,20]);
+	translate([outer_diameter, outer_diameter, -0.1]) cylinder(h =20, r = m8_diameter/2, $fn = 18);
 	translate([17, 17, 5]) rotate([90, 0, 0]) cylinder(h =20, r = m3_diameter/2, $fn = 10);
 
 	if(extrude_mount)
 	{
-		translate([-5, 11, 0]) cube([m3_diameter+0.3,7,20]);
+		translate([-5, 11, -1]) cube([m3_diameter+0.3,7,20]);
 	} else
 	{
 		translate([-4-switch_add, 17, 5]) rotate([90, 0, 0]) cylinder(h =20, r = 

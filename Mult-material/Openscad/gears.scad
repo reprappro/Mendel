@@ -10,52 +10,49 @@ shaft_flat = 2;      // Radial distance of D flat on the shaft from its axis.  S
 motor_shaft = 5.2;
 
 //rotate([180,0,0]) translate([0,0,-7])
-//translate ([19.2588,0,0])
+translate ([19.9028,0,1]) //was translate ([19.2588,0,1])
 //translate([0,50,0])
-//	large_gear();
+	large_gear();
 //translate([10,10,0])
 //rotate([0,0,0]) translate([0,0,-3]) rotate([0,0,0])
 	//color([1,1,1,0.3])
-//		small_gear();
+		small_gear();
 
 module small_gear(){
-translate ([0,0,0]) difference(){
-	gear (
-	number_of_teeth=13,
-	circular_pitch=133, diametral_pitch=false, // Changed from 150 - AB
-	pressure_angle=28,
-	clearance = 0.2,
-	gear_thickness=5,
-	rim_thickness=5,
-	rim_width=6,
-	hub_thickness=4,
-	hub_diameter=13,
-	bore_diameter=motor_shaft,
-	circles=0,
-	backlash=0,
-	twist=0,
-	involute_facets=0);
-	//translate([0,0,11]) rotate([90,0,0]) cylinder(h=16,r=2.7/2,$fn=30);
-	//translate([0,10,8.6]) rotate([-90,0,180]) union()
-	//{
-		//entrance
-		//translate([0,-3,15]) cube([5.8,7,3],center=true);
-	//	translate([0,-3,14.5]) cube([2*(5.8/sqrt(3)),6,3],center=true);
-		//nut
-	//	translate([0,0,13]) rotate([0,0,0])cylinder(r=5.8/sqrt(3),h=3,$fn=6);
-		//grub hole
-	//	translate([0,0,9]) cylinder(r=3.3/sqrt(3),h=10,$fn=6);
-	//}
-	}
-	translate([shaft_flat + 0.75,0,2.5])
-	cube([1.5,5,5],center=true);
-	//base
+translate ([0,0,0])
 	difference(){
-		union(){
-			cylinder(r=6.3,h=0.4);			
-			translate([0,0,0.4]) cylinder(r1=6.3,r2=5.3,h=0.4);
+		union() {
+			gear (
+				number_of_teeth=13,
+				circular_pitch=133, diametral_pitch=false, // Changed from 150 - AB
+				pressure_angle=28,
+				clearance = 0.2,
+				gear_thickness=5,
+				rim_thickness=5,
+				rim_width=6,
+				hub_thickness=4,
+				hub_diameter=13,
+				bore_diameter=motor_shaft,
+				circles=0,
+				backlash=0,
+				twist=0,
+				involute_facets=0
+			);
+			
+			translate([shaft_flat + 0.75,0,2.5])
+				cube([1.5,5,5],center=true);
+			//base
+			//difference(){
+				union(){
+					cylinder(r=6.3,h=0.4);			
+					translate([0,0,0.4]) cylinder(r1=6.3,r2=5.3,h=0.4);
+				}
+				//cylinder(r=motor_shaft/2,h=10.2,center=true);
+			//}
 		}
-		cylinder(r=motor_shaft/2,h=10.2,center=true);
+		//lead in
+		translate([0,0,-0.01])
+			cylinder(r1=motor_shaft/2+0.25, r2=motor_shaft/2-2,h=4);
 	}
 }
 

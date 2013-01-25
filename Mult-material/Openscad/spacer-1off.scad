@@ -1,7 +1,7 @@
 thickness=2;
 hole_pitch=31;
 rad = 6;
-notch = true;
+notch = false;
 
 module NEMA17_spacer(){
 	//body

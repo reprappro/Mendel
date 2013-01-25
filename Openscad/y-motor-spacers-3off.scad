@@ -1,13 +1,13 @@
 // Print one of the objects generated when this is true, and one when it's false.
-open_standoff();
-//closed_standoff();
+//closed_spacer()
+open_spacer();
 
-include <configuration.scad> ;
+include <../configuration.scad> ;
 
 
-cyl_height = 10 ;
+cyl_height = 12.7 ;
 
-module closed_standoff(){
+module closed_spacer(){
 	difference(){
 		cylinder(h=cyl_height, r=5) ;
 		cylinder(h=50,r=m3_diameter/2,$fn=20) ;
@@ -16,8 +16,7 @@ module closed_standoff(){
 
 
 
-
-module open_standoff() {
+module open_spacer() {
 				rotate([0,180,0])
 				mirror([0,0,1])
 				difference()	 {

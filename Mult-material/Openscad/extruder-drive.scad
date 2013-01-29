@@ -8,7 +8,7 @@ filament_offset_x=(5/2+filament_d/2+2.5);
 echo(filament_offset_x);
 drive_offset_y=17;
 bite=-0.5;
-motor_hole_pitch=31;
+motor_hole_pitch=26;//31;
 frame_clamp = true;  // Flattens end where Mendel frame clamp lands - AB
 
 //da8=sqrt(2+sqrt(2))/4;
@@ -35,13 +35,13 @@ module drive_block(){
 			if(!frame_clamp)
 				translate([0,5-1,7]) cube([motor_hole_pitch+8,motor_hole_pitch+16,14],center=true);
 			else
-				translate([1,5-0.5,7]) cube([motor_hole_pitch+10,motor_hole_pitch+17,14],center=true);
+				translate([1,5-0.5,7]) cube([motor_hole_pitch+11,31+17,14],center=true);
 			translate([17,24,3]) rotate([0,-90,0]){
 				cylinder(r=3,h=40);
 				translate([-3,0,0]) cube([3,3,40]);
 			}
 				//boss for carriage mount hole
-				rotate([90,0,0]) translate([20,7,(motor_hole_pitch-7)/2]) rotate([0,0,22.5]) cylinder(r=14*da8,h=7.5,$fn=8);
+				rotate([90,0,0]) translate([20,7,(31-7)/2]) rotate([0,0,22.5]) cylinder(r=14*da8,h=7.5,$fn=8);
 				//boss for idler tensioner hole
 				translate([15.6,25,14]) rotate([0,-90,0]) cylinder(r=3.5,h=20.6);
 				//boss for drive bearings
@@ -55,6 +55,7 @@ module drive_block(){
 				cylinder(r=3.3*da8,h=40,center=true,$fn=8);
 				translate([0,0,5]) cylinder(r=3.5*da8,h=0.3);
 			}
+		  translate([0,0,9]) cylinder(r=3.1,h=14);
       translate([-9,0,2.5]) cube([24,11,5],center=true);
 			translate([-15,2,2.4]) difference(){
 				translate([0,0.5,0]) cube([20,19,15],center=true);
@@ -71,9 +72,9 @@ module drive_block(){
 		//****drive****
 		translate([filament_offset_x+filament_d/2+5.6/2-bite,drive_offset_y,2.5]){
 			translate([0,0,-3]) cylinder(r=8.8/2,h=20);
-			translate([0,0,-0.6]) scale([1,1,1.1]) scale([1.03,1.03,1]) bearing_623();
+			translate([0,0,-0.6]) scale([1,1,1.1]) scale([1,1,1]) bearing_623();
             translate([0,0,(8.8-5)/2-0.6]) cylinder(r1=5,r2=8.8/2,h=(8.8-5)/2);
-			translate([0,0,14.5]) scale([1,1,2]) scale([1.03,1.03,1]) bearing_623();
+			translate([0,0,14.5]) scale([1,1,2]) scale([1,1,1]) bearing_623();
 		}
 		
 		//****filament path****
@@ -103,6 +104,7 @@ module drive_block(){
 		//****motor mount holes****
 		for(i=[1,-1]){
 			translate([i*motor_hole_pitch/2,-motor_hole_pitch/2,-0.1]) rotate([0,0,22.5]) cylinder(r=3.3*da8,h=20,$fn=8);
+			translate([i*motor_hole_pitch/2,-motor_hole_pitch/2,11]) cylinder(r=3.1,h=5);
 		}
 		 // Added by AB
 		//translate([-motor_hole_pitch/2,motor_hole_pitch/2,-0.1]) rotate([0,0,22.5]) cylinder(r=3.3*da8,h=20,$fn=8);
@@ -111,7 +113,7 @@ module drive_block(){
 			translate([18.6+2.5,25.25,2.5+i]) rotate([0,-90,0]){
 				if(!frame_clamp || i > 4)
 					rotate([0,0,30]) cylinder(r=5.8/sqrt(3),h=12, center=true,$fn=6);
-				rotate([0,0,22.5]) cylinder(r=3.3*da8,h=80, center=true,$fn=8);
+				  rotate([0,0,22.5]) cylinder(r=3.3*da8,h=80, center=true,$fn=8);
 			}
 		}
 		if(!frame_clamp)
@@ -120,9 +122,9 @@ module drive_block(){
 			translate([17.1+2,26,28]) cube([8,6.8,35],center=true);
 		//****carriage mount holes****
 		for(i=[1,-1]){
-			rotate([90,0,0]) translate([filament_offset_x+i*16+1.5,7.5,9])
+			rotate([90,0,0]) translate([filament_offset_x+i*16+1.5,7.5,5])
 			{
-                		translate([0,0,-8]) rotate([0,0,22.5]) cylinder(r=3.3*da8,h=24,$fn=8);
+        translate([0,0,-8]) rotate([0,0,22.5]) cylinder(r=3.3*da8,h=30,$fn=8);
 				rotate([0,0,30]) cylinder(r=5.8/sqrt(3),h=3,$fn=6);
 				translate([-5.8/2,0,0]) cube([5.8,10,3]);
 			}

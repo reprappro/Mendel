@@ -19,6 +19,8 @@ Y for shortened to allow all 4 extruders to access all of the bed. Build volume 
 
 Z Endstop adjuster incorporated into X ends
 
+X carriage now includes mounting points for a (future) hot end PCB to ease wiring
+
 Switched to MXL belts for improved build quality. MXL on X axis is now held by a second piece of belt which is press fit into the X carriage - eases print complexity.
 
 XLR bracket incorporated into frame feet

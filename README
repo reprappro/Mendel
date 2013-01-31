@@ -7,11 +7,12 @@ Rhys, Jan 2013
 
 Multicolour functionality - Initially supports 3 extruders/materials/colours, 4 with future electronics
 
+Machine redesigned to improve working volume, minimise print time for replication, ease assembly and reduce fastener count.  Every component has changed with the exception of the bar clamps.
+
 All rods are identical to RepRapPro Mendel 1 to allow V1 owners to upgrade major components with the minimum fuss and effort
 
 Printed plastic volume and print time reduced by 20-25%
 
-Machine redesigned to improve working volume and minimise print time for replication.  Every component has changed with the exception of the bar clamps.
 
 Bed sits lower and on stiffer springs/bolts for improved speeds and build quality - Y frog redesigned
 

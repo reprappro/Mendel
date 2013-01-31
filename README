@@ -17,7 +17,7 @@ Bed sits lower and on stiffer springs/bolts for improved speeds and build qualit
 
 Y for shortened to allow all 4 extruders to access all of the bed. Build volume now 200X200X150 for all extruders, total travel available is 250x230x150.
 
-Z Endstop adjuster incorporated into X ends
+Z Endstop adjuster incorporated into X Motor Bracket
 
 X carriage now includes mounting points for a (future) hot end PCB to ease wiring
 
@@ -25,11 +25,11 @@ Switched to MXL belts for improved build quality. MXL on X axis is now held by a
 
 XLR bracket incorporated into frame feet
 
-Y motor bracket is now laser cut MDF - substantially reduces noise, and reduces printing requirement. Laser cut components fit into wasted spaces within existing laser cut sheets. Previous design is available as a printed.
+Y motor bracket is now laser cut MDF - substantially reduces noise, and reduces printing requirement. Laser cut components fit into wasted space within existing laser cut sheets. Previous design is available as a printed alternative.
 
-Heated bed insulator updated to include stiffer mounting points already mention, also redesigned to be symmetric to ease assembly and include some laser etched instructions to assist with wiring
+Heated bed insulator updated to include stiffer mounting points, also redesigned to be symmetric to ease assembly and include laser etched instructions to assist with wiring
 
-X & Y have slotted motor tensioners as per the RepRapPro Huxley for simplicity relative to V1
+X & Y have slotted motor mounts for belt tensioning as per the RepRapPro Huxley for simplicity relative to V1
 
 All motors now only attach via 2 M3 caps screws to ease assembly.
 

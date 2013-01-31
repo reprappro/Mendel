@@ -9,9 +9,9 @@ All rods are identical to RepRapPro Mendel 1 to ease upgrade if required
 
 Printed plastic volume and print time reduced by 20-25%
 
-Machine redesigned to improve working volume
+Machine redesigned to improve working volume and minimise print time for replication.  Every component has changed with the exception of the bar clamps.
 
-Bed sits lowers and on stiffer springs/bolts for improved speeds and build quality - Y frog redesigned
+Bed sits lower and on stiffer springs/bolts for improved speeds and build quality - Y frog redesigned
 
  X axis changed to vertical setup - allows for up to 4 extruders with future electronics, or 3 extruders + fan mount for main extruder with on current electronics. 
 

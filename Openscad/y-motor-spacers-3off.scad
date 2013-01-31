@@ -5,12 +5,12 @@ open_spacer();
 include <../configuration.scad> ;
 
 
-cyl_height = 12.7 ;
+cyl_height = 14 ;
 
 module closed_spacer(){
 	difference(){
 		cylinder(h=cyl_height, r=5) ;
-		cylinder(h=50,r=m3_diameter/2,$fn=20) ;
+		cylinder(h=50,r=1.6,$fn=20) ;
 		}
 }
 

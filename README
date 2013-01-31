@@ -5,6 +5,8 @@ NOTES
 
 Rhys, Jan 2013
 
+Multicolour functionality - Initially supports 3 extruders/materials/colours, 4 with future electronics
+
 All rods are identical to RepRapPro Mendel 1 to ease upgrade if required
 
 Printed plastic volume and print time reduced by 20-25%

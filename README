@@ -3,6 +3,45 @@ This is the RepRapPro Mendel V1.1
 NOTES
 =================
 
+JMG, Feb 2013
+
+Printed oarts BoM
+
+MACHINE
+2-1 frame-vertex
+4-1 frame-vertex-foot
+4-1,4-2 bar-clamp
+2-1 z-motor-mount
+4-2 belt-guide
+3-2 bearing-holder
+4-2 coupling
+3-2 PCB clip
+1-2 x-end-motor
+1-2 x-end-idler
+1-2 x-carriage
+1-2 x-idler-cover
+1-2 nozzle-mount-front
+1-2 nozzle-mount-rear
+1-2 z-endstop
+1-2 y-endstop
+2-2 y-belt-clamp
+2-2 y-motor-spacer
+1-2 y-motor-spacer-open
+43
+
+EXTRUDER DRIVE
+1 extruder-drive
+1 small-gear
+1 large-gear
+1 tongue
+2 frame-clip
+1 frame-clip-tab
+1 spacer
+8
+
+SLAVE MELZI
+3 PCB clips
+
 Rhys, Jan 2013
 
 Multicolour functionality - Initially supports 3 extruders/materials/colours, 4 with future electronics

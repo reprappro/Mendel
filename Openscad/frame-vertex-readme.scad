@@ -74,6 +74,7 @@ else {
 		xteardrop(m8_horizontal,62);
 }
 }
+mirror([1,0,0])
 vertex(basefoot);
 
 

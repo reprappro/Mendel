@@ -13,10 +13,12 @@
 
 //Test
 //bearing_holder(clamp=false,with_mountplate=true, vertical=false, slope=false,igus=false);
+//bearing_holder(clamp=false,with_mountplate=true, vertical=false, slope=false, igus=false);
+
 
 
 // LM8UU/rod dimensions
-LM8UU_dia = 15;
+LM8UU_dia = 14.8;
 LM8UU_length = 24;
 rod_dia = 8;
 
@@ -33,7 +35,8 @@ screw_head_dia = screw_head_dia_iso + clearance_dia;
 nut_wrench_size = nut_wrench_size_iso + clearance_dia;
 nut_dia_perimeter = (nut_wrench_size/cos(30));
 nut_dia = nut_dia_perimeter;
-nut_surround_thickness = 2;
+m5_nut = 9.4;
+nut_surround_thickness = 3;
 
 // main body dimensions
 body_wall_thickness = 2;
@@ -46,16 +49,10 @@ screw_elevation = LM8UU_dia + body_wall_thickness + (screw_thread_dia/2) +screw_
 projection=15; // Side projection for bed mount
 plate_thickness=10;// thickness of mount plate
 
-igus_od=9.65;
+igus_od=9.5+0.3;
 igus_flat=13;
 igus_length=8;
 igus_thick=1;
-
-
-
-
-
-
 
 // nophead's polyhole module for better lm8uu-fit
 module polyhole(d,h) {
@@ -79,9 +76,9 @@ module mount_plate()
 		//echo(-(body_width/2+nut_surround_thickness+screw_head_dia/2 + projection - screw_head_dia/2+2));
 		translate([-(body_width/2+nut_surround_thickness+screw_head_dia/2 + projection - screw_head_dia/2+2),0,-0.5])
 		{
-				cylinder(r=screw_thread_dia/2, h=20, $fn=20);
+				cylinder(r=5.2/2, h=20, $fn=20);
 				translate([0,0,1])
-					cylinder(r=nut_dia/2, h=5, $fn=6, center=true);
+					cylinder(r=m5_nut/2, h=4, $fn=6, center=true);
 		}
 	}
 }
@@ -278,7 +275,7 @@ module bearing_holder(clamp=false,with_mountplate=false, vertical=false, slope=f
 			translate([0,50,LM8UU_dia/2+2])
 			{
 				rotate([90,0,0])
-					translate([0,0,-(LM8UU_length+1)/2]) polyhole(igus_od+0.3,LM8UU_length+100);
+					translate([0,0,-(LM8UU_length+1)/2]) polyhole(igus_od,LM8UU_length+100);
 				translate([0,0,sqrt(0.5)*((igus_flat/2)+body_wall_thickness)])
 					rotate([0,45,0])
 						cube([(igus_flat/2)+body_wall_thickness, LM8UU_length+100 ,

@@ -27,13 +27,14 @@ difference(){
 		
 		translate([outer_diameter_y, outer_diameter_y, 0])cylinder(h =outer_diameter_z*2, r = outer_diameter_y, $fn = 20);
 		translate([outer_diameter_y, 0, 0])cube([outer_diameter_y+1.5,outer_diameter_y*2,outer_diameter_z*2]);
-		translate([18, 2*outer_diameter_y, outer_diameter_z])rotate([90, 0, 0]) rotate([0, 0, 0]) nut(outer_diameter_z*2,outer_diameter_y*2,false);
+		translate([18, 2*outer_diameter_y, outer_diameter_z])rotate([90, 0, 0]) rotate([0, 0, 0])
+			nut(outer_diameter_z*2,outer_diameter_y*2,false);
 	}
 
 
-	translate([19, outer_diameter_y, 9])cube([19,5,20], center=true);
-	translate([outer_diameter_y, outer_diameter_y, -1]) #cylinder(h =20, r = m8_diameter/2, $fn = 18);
-	translate([17, 17, outer_diameter_z]) rotate([90, 0, 0]) #cylinder(h =20, r = m8_diameter/2, $fn = 20);
+	translate([19, outer_diameter_y, 9]) #cube([19,5,20], center=true);
+	translate([outer_diameter_y, outer_diameter_y, -1]) cylinder(h =20, r = m8_diameter/2, $fn = 18);
+	translate([17, 17, outer_diameter_z]) rotate([90, 0, 0]) cylinder(h =20, r = m8_diameter/2, $fn = 20);
 }
 }
 barclamp();

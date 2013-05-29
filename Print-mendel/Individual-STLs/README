@@ -13,6 +13,9 @@ for that part that you need to print as part of its filename.  If you want a coo
 your RepRap (this gives better quality, especially for prints with a small cross-sectional
 area) print the optional fan-holder file too; otherwise leave it out.
 
+The Y-motor-mount file is optional - you don't need it if you lasercut the Y motor mount, but
+you can also print it. 
+
 In addition, for a Tricolour Mendel you will need three extruder drives from here:
 
 https://github.com/reprappro/Extruder-drive

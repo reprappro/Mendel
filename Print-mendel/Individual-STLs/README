@@ -8,7 +8,7 @@ and
 
    http://reprappro.com/Mono_Mendel
 
-Both machines use the same files from this directory.  Each file-name has the number-off
+Both machines use the same files from this directory.  Each filename has the number-off
 for that part that you need to print as part of its filename.  If you want a cooling fan on
 your RepRap (this gives better quality, especially for prints with a small cross-sectional
 area) print the optional fan-holder file too; otherwise leave it out.

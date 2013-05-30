@@ -1,0 +1,41 @@
+The master files for the whole of RepRapPro Mendel are on Github here:
+
+https://github.com/reprappro/Mendel
+
+These are the all the printed parts except the extruder for a RepRapPro Mendel.
+
+See: 
+
+   http://reprappro.com/Tricolour_Mendel
+
+and
+
+   http://reprappro.com/Mono_Mendel
+
+Both machines use the same files from this directory.  Each filename has the number-off
+for that part that you need to print as part of its filename.  If you want a cooling fan on
+your RepRap (this gives better quality, especially for prints with a small cross-sectional
+area) print the optional fan-holder file too; otherwise leave it out.
+
+The Y-motor-mount file is optional - you don't need it if you lasercut the Y motor mount, but
+you can also print it.  Similarly with the Y-frog.  This is divided in two (A and B) for 
+easier printing; bolt the two halves together with 4 M3x20mm cap screws.  (All the .dxf files for lasercutting are in the dxf directory in the Github repository.) 
+
+In addition, for a Tricolour Mendel you will need three extruder drives from here:
+
+https://github.com/reprappro/Extruder-drive
+
+For a Mono Mendel, you need only one extruder drive.
+
+For build instructions and lists of all the other hardware needed, see here:
+
+http://reprappro.com/wiki/index.php/RepRapPro_Tricolour
+
+RepRapPro sells hardware-only kits to go with the printed parts described above so that
+you can print your own RepRap and then get all the additional hardware needed to build
+and operate the complete machine from one place.  See the first two links above for details.
+
+
+
+
+

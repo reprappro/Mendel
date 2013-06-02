@@ -1,6 +1,6 @@
 // Print one of the objects generated when this is true, and one when it's false.
-//closed_spacer()
-open_spacer();
+closed_spacer()
+//open_spacer();
 
 include <../configuration.scad> ;
 
@@ -9,7 +9,7 @@ cyl_height = 14 ;
 
 module closed_spacer(){
 	difference(){
-		cylinder(h=cyl_height, r=5) ;
+		cylinder(h=cyl_height, r=7, $fn=6) ;
 		cylinder(h=50,r=1.6,$fn=20) ;
 		}
 }
